@@ -425,23 +425,17 @@ export default function Portfolio() {
       </div>
 
       {/* ── EDUCATION ── */}
-      <Section id="education" eyebrow="05 · learning" title="Education & Certifications">
+      <Section id="education" eyebrow="05 · learning" title="Education">
         <div className="grid md:grid-cols-2 gap-6">
           <div className="rounded-2xl p-5" style={{ background: "#FDF7F0", border: "1.5px solid #E9CFC0" }}>
-            <div className="font-mono text-xs mb-2" style={{ color: "#B94A3B" }}>EDUCATION</div>
+            <div className="font-mono text-xs mb-2" style={{ color: "#B94A3B" }}>DEGREE</div>
             <p className="font-bold" style={{ color: "#221419" }}>B.Sc. Computer Science & Pure Mathematics</p>
             <p style={{ color: "#5a4a44" }}>Al-Azhar University · 2022 – 2027</p>
-            <p className="font-bold mt-4" style={{ color: "#221419" }}>Applied Data Science Lab</p>
-            <p style={{ color: "#5a4a44" }}>WorldQuant University · 2026 – Present</p>
           </div>
           <div className="rounded-2xl p-5" style={{ background: "#FDF7F0", border: "1.5px solid #E9CFC0" }}>
-            <div className="font-mono text-xs mb-2" style={{ color: "#B94A3B" }}>CERTIFICATIONS</div>
-            <ul className="space-y-1.5" style={{ color: "#5a4a44" }}>
-              <li>✦ Data Analytics Summer Internship — ITI (2025)</li>
-              <li>✦ Associate SQL for Data Analytics — DataCamp (2025)</li>
-              <li>✦ ALX Data Analytics (2025) · ALX Professional Foundations (2024)</li>
-              <li>✦ DEPI Data Analytics Track — MCIT Egypt (2024–2025)</li>
-            </ul>
+            <div className="font-mono text-xs mb-2" style={{ color: "#B94A3B" }}>PROGRAM</div>
+            <p className="font-bold" style={{ color: "#221419" }}>Applied Data Science Lab</p>
+            <p style={{ color: "#5a4a44" }}>WorldQuant University · 2026 – Present</p>
           </div>
         </div>
       </Section>

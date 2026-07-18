@@ -41,11 +41,32 @@ export default function Certifications() {
 
             <div className="relative overflow-hidden h-60">
 
-              <img
-                src={cert.image}
-                alt={cert.title}
-                className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
-              />
+              {cert.image ? (
+                <img
+                  src={cert.image}
+                  alt={cert.title}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+                />
+              ) : (
+                <div
+                  className="w-full h-full flex items-center justify-center transition duration-700 group-hover:scale-110"
+                  style={{
+                    background:
+                      "linear-gradient(135deg,#F2B8C0 0%,#F0A24B 100%)",
+                  }}
+                >
+                  <span
+                    className="text-5xl font-extrabold"
+                    style={{
+                      fontFamily: "'Syne',sans-serif",
+                      color: "#221419",
+                    }}
+                  >
+                    {cert.issuer.charAt(0)}
+                  </span>
+                </div>
+              )}
 
               {/* Overlay */}
 
