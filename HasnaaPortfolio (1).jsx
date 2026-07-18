@@ -6,7 +6,6 @@ import { useState, useEffect, useRef } from "react";
 const LINKS = {
   linkedin: "https://www.linkedin.com/in/hasnaa-ahmed-data-analysis/",
   github: "https://github.com/evehasnaa",
-  portfolio: "https://www.datascienceportfol.io/hasnaaahmed",
   email: "hasnaaahmed745@gmail.com",
   phone: "+20 102 396 7460",
   whatsapp: "https://wa.me/201023967460",

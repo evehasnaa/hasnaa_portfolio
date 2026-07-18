@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import Certifications from "./components/Certifications";
 
 /* ─── Palette (from Hasnaa's photo: blush vest, cream hijab, brick wall, glow) ───
    ink   #221419   brick #B94A3B   blush #F2B8C0   cream #F3E9DC   amber #F0A24B */
@@ -444,6 +445,11 @@ export default function Portfolio() {
           </div>
         </div>
       </Section>
+
+      {/* ── CERTIFICATIONS ── */}
+      <div style={{ background: "#FDF7F0" }}>
+        <Certifications />
+      </div>
 
       {/* ── CONTACT ── */}
       <div style={{ background: "radial-gradient(110% 120% at 50% 110%, #3a222c 0%, #221419 60%)" }}>
