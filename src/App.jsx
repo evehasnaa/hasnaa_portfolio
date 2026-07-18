@@ -441,7 +441,7 @@ export default function Portfolio() {
       </Section>
 
       {/* ── CERTIFICATIONS ── */}
-      <div style={{ background: "#FDF7F0" }}>
+      <div style={{ background: "#F7EFE5" }}>
         <Certifications />
       </div>
 
