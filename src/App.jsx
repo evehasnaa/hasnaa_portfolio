@@ -7,7 +7,6 @@ import Certifications from "./components/Certifications";
 const LINKS = {
   linkedin: "https://www.linkedin.com/in/hasnaa-ahmed-data-analysis/",
   github: "https://github.com/evehasnaa",
-  portfolio: "https://www.datascienceportfol.io/hasnaaahmed",
   email: "hasnaaahmed745@gmail.com",
   phone: "+20 102 396 7460",
   whatsapp: "https://wa.me/201023967460",
@@ -126,8 +125,8 @@ function Section({ id, eyebrow, title, children }) {
 
 function Chip({ children }) {
   return (
-    <span className="px-3 py-1.5 rounded-full text-sm font-medium transition-transform hover:-translate-y-0.5"
-      style={{ background: "#F8EFE6", border: "1.5px solid #E9CFC0", color: "#5a3a33" }}>
+    <span className="px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+      style={{ background: "#FFFDFB", border: "1.5px solid #E7D8CC", color: "#6B5A56" }}>
       {children}
     </span>
   );
@@ -272,25 +271,26 @@ export default function Portfolio() {
   const [entered, setEntered] = useState(false);
 
   return (
-    <div style={{ background: "#F7EFE5", fontFamily: "'Manrope',sans-serif" }} className="min-h-screen">
+    <div style={{ background: "#FAF6F1", fontFamily: "'Manrope',sans-serif" }} className="min-h-screen">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
+        html { scroll-behavior: smooth; }
         * { font-family: inherit; }
         .font-mono { font-family: 'IBM Plex Mono', monospace !important; }
         .splash-bar { height: 20%; animation: grow 1.1s ease-in-out infinite alternate; }
         @keyframes grow { from { height: 18%; } to { height: 100%; } }
         .boot-line { animation: fadeUp .4s ease both; }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(6px); } to { transform: none; } }
-        .enter-pulse { animation: pulse 1.4s ease-in-out infinite; }
-        @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(240,162,75,.55);} 50% { box-shadow: 0 0 0 14px rgba(240,162,75,0);} }
         .toast-pop { animation: pop .25s cubic-bezier(.2,1.4,.4,1) both; }
         @keyframes pop { from { transform: scale(.4); opacity: 0;} to { transform: scale(1);} }
         .hero-in { animation: heroIn .9s cubic-bezier(.2,.9,.3,1) both; }
         @keyframes heroIn { from { opacity: 0; transform: translateY(26px);} to { opacity: 1;} }
         .marquee { animation: slide 18s linear infinite; }
         @keyframes slide { from { transform: translateX(0);} to { transform: translateX(-50%);} }
-        .proj-card { transition: transform .25s cubic-bezier(.2,.9,.3,1), box-shadow .25s ease; will-change: transform; }
+        .proj-card { transition: transform .25s cubic-bezier(.2,.9,.3,1), box-shadow .25s ease; will-change: transform; box-shadow: 0 4px 14px -10px rgba(0,0,0,.35); }
         .proj-card:hover { box-shadow: 0 18px 40px -18px rgba(185,74,59,.45); }
+        .lift-card { transition: transform .3s ease, box-shadow .3s ease; box-shadow: 0 2px 12px -8px rgba(34,20,25,.10); }
+        .lift-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px -18px rgba(34,20,25,.22); }
         .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.9,.3,1); }
         .reveal-in { opacity: 1; transform: none; }
         @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation: none !important; transition: none !important; } .reveal { opacity: 1; transform: none; } }
@@ -350,7 +350,7 @@ export default function Portfolio() {
 
         {/* marquee strip */}
         <div className="overflow-hidden py-3" style={{ background: "#B94A3B" }}>
-          <div className="marquee whitespace-nowrap font-mono text-sm font-semibold" style={{ color: "#F7EFE5" }}>
+          <div className="marquee whitespace-nowrap font-mono text-sm font-semibold" style={{ color: "#FAF6F1" }}>
             {Array(2).fill("POWER BI ✦ DAX ✦ SQL ✦ PYTHON ✦ ETL ✦ DASHBOARDS ✦ DATA STORYTELLING ✦ ").map((s, i) => (
               <span key={i} className="mx-2">{s}</span>
             ))}
@@ -360,7 +360,7 @@ export default function Portfolio() {
 
       {/* ── ABOUT ── */}
       <Section id="about" eyebrow="01 · whoami" title="About">
-        <p className="text-lg leading-relaxed max-w-3xl" style={{ color: "#5a4a44" }}>
+        <p className="text-lg leading-relaxed max-w-3xl" style={{ color: "#6B5A56" }}>
           Data Analyst focused on <b>e-commerce, sales, and marketing</b> domains — experienced in
           end-to-end analytics from <b>data modeling and ETL</b> to <b>dashboards and stakeholder
           reporting</b>. B.Sc. student in Computer Science & Pure Mathematics at Al-Azhar University,
@@ -369,7 +369,7 @@ export default function Portfolio() {
       </Section>
 
       {/* ── SKILLS ── */}
-      <div style={{ background: "#F7EFE5" }}>
+      <div style={{ background: "#F6EEE6" }}>
         <Section id="skills" eyebrow="02 · toolbox" title="Skills">
           <div className="grid md:grid-cols-2 gap-8">
             {Object.entries(SKILLS).map(([cat, items]) => (
@@ -384,17 +384,17 @@ export default function Portfolio() {
 
       {/* ── EXPERIENCE ── */}
       <Section id="experience" eyebrow="03 · timeline" title="Experience">
-        <div className="relative pl-6" style={{ borderLeft: "3px solid #E9CFC0" }}>
+        <div className="relative pl-6" style={{ borderLeft: "3px solid #E7D8CC" }}>
           {EXPERIENCE.map((e, i) => (
             <div key={i} className="mb-10 relative">
               <div className="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full"
-                style={{ background: "#B94A3B", border: "3px solid #F7EFE5" }} />
+                style={{ background: "#B94A3B", border: "3px solid #FAF6F1" }} />
               <div className="flex flex-wrap items-baseline gap-x-3 pl-2">
                 <h3 className="text-xl font-bold" style={{ color: "#221419" }}>{e.role}</h3>
                 <span className="font-mono text-xs" style={{ color: "#F0A24B" }}>{e.date}</span>
               </div>
               <div className="font-semibold mb-2 pl-2" style={{ color: "#B94A3B" }}>{e.org}</div>
-              <ul className="list-disc ml-5 space-y-1" style={{ color: "#5a4a44" }}>
+              <ul className="list-disc ml-5 space-y-1" style={{ color: "#6B5A56" }}>
                 {e.points.map((p, j) => <li key={j}>{p}</li>)}
               </ul>
             </div>
@@ -427,12 +427,12 @@ export default function Portfolio() {
       {/* ── EDUCATION ── */}
       <Section id="education" eyebrow="05 · learning" title="Education">
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="rounded-2xl p-5" style={{ background: "#FDF7F0", border: "1.5px solid #E9CFC0" }}>
+          <div className="rounded-2xl p-5 lift-card" style={{ background: "#FFFDFB", border: "1.5px solid #E7D8CC" }}>
             <div className="font-mono text-xs mb-2" style={{ color: "#B94A3B" }}>DEGREE</div>
             <p className="font-bold" style={{ color: "#221419" }}>B.Sc. Computer Science & Pure Mathematics</p>
-            <p style={{ color: "#5a4a44" }}>Al-Azhar University · 2022 – 2027</p>
+            <p style={{ color: "#6B5A56" }}>Al-Azhar University · 2022 – 2027</p>
           </div>
-          <div className="rounded-2xl p-5" style={{ background: "#FDF7F0", border: "1.5px solid #E9CFC0" }}>
+          <div className="rounded-2xl p-5 lift-card" style={{ background: "#FFFDFB", border: "1.5px solid #E7D8CC" }}>
             <div className="font-mono text-xs mb-2" style={{ color: "#B94A3B" }}>PROGRAM</div>
             <p className="font-bold" style={{ color: "#221419" }}>Applied Data Science Lab</p>
             <p style={{ color: "#5a4a44" }}>WorldQuant University · 2026 – Present</p>
@@ -441,7 +441,7 @@ export default function Portfolio() {
       </Section>
 
       {/* ── CERTIFICATIONS ── */}
-      <div style={{ background: "#F7EFE5" }}>
+      <div style={{ background: "#F6EEE6" }}>
         <Certifications />
       </div>
 

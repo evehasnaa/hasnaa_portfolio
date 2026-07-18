@@ -32,8 +32,9 @@ export default function Certifications() {
             rel="noopener noreferrer"
             className="group rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl"
             style={{
-              background: "#FDF7F0",
-              border: "1.5px solid #E9CFC0",
+              background: "#FFFDFB",
+              border: "1.5px solid #E7D8CC",
+              boxShadow: "0 2px 12px -8px rgba(34,20,25,.10)",
             }}
           >
 
@@ -118,7 +119,7 @@ export default function Certifications() {
               <p
                 className="text-sm"
                 style={{
-                  color: "#5a4a44",
+                  color: "#6B5A56",
                 }}
               >
                 <strong>Issued by:</strong> {cert.issuer}
@@ -127,7 +128,7 @@ export default function Certifications() {
               <p
                 className="text-sm mt-2"
                 style={{
-                  color: "#5a4a44",
+                  color: "#6B5A56",
                 }}
               >
                 <strong>Date:</strong> {cert.date}
