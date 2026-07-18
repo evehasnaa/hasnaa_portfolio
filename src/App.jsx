@@ -369,7 +369,7 @@ export default function Portfolio() {
       </Section>
 
       {/* ── SKILLS ── */}
-      <div style={{ background: "#FDF7F0" }}>
+      <div style={{ background: "#F7EFE5" }}>
         <Section id="skills" eyebrow="02 · toolbox" title="Skills">
           <div className="grid md:grid-cols-2 gap-8">
             {Object.entries(SKILLS).map(([cat, items]) => (
