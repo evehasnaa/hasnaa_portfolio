@@ -87,14 +87,38 @@ const Eyebrow = ({ children }) => (
   </div>
 );
 
+/* Scroll-triggered entrance reveal — animates once, calmly */
+function Reveal({ children, delay = 0, className = "" }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) { el.classList.add("reveal-in"); io.disconnect(); }
+      },
+      { threshold: 0.12 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return (
+    <div ref={ref} className={`reveal ${className}`} style={{ transitionDelay: `${delay}ms` }}>
+      {children}
+    </div>
+  );
+}
+
 function Section({ id, eyebrow, title, children }) {
   return (
     <section id={id} className="max-w-5xl mx-auto px-6 py-16">
-      <Eyebrow>{eyebrow}</Eyebrow>
-      <h2 className="text-3xl md:text-4xl font-extrabold mb-8" style={{ fontFamily: "'Syne',sans-serif", color: "#221419" }}>
-        {title}
-      </h2>
-      {children}
+      <Reveal>
+        <Eyebrow>{eyebrow}</Eyebrow>
+        <h2 className="text-3xl md:text-4xl font-extrabold mb-8" style={{ fontFamily: "'Syne',sans-serif", color: "#221419" }}>
+          {title}
+        </h2>
+      </Reveal>
+      <Reveal delay={120}>{children}</Reveal>
     </section>
   );
 }
@@ -173,6 +197,40 @@ function ContactCard({ icon, label, value, action, href }) {
   );
 }
 
+/* ───────────────────────── Project card (subtle mouse parallax) ───────────────────────── */
+function ProjectCard({ p }) {
+  const ref = useRef(null);
+
+  const tilt = (e) => {
+    const r = ref.current.getBoundingClientRect();
+    const rx = ((e.clientY - r.top) / r.height - 0.5) * -4;
+    const ry = ((e.clientX - r.left) / r.width - 0.5) * 4;
+    ref.current.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
+  };
+
+  return (
+    <a ref={ref} href={p.link} target="_blank" rel="noreferrer"
+      onMouseMove={tilt}
+      onMouseLeave={() => (ref.current.style.transform = "")}
+      className="proj-card block rounded-2xl overflow-hidden"
+      style={{ background: "#2b1a21", border: "1.5px solid #4a2f3a" }}>
+      {/* 🖼️ image slot — replace src with your screenshot */}
+      <div className="h-44 flex items-center justify-center font-mono text-sm"
+        style={{ background: "repeating-linear-gradient(45deg,#33202a,#33202a 12px,#2b1a21 12px,#2b1a21 24px)",
+                 color: "#8a6a75", borderBottom: "1.5px solid #4a2f3a" }}>
+        {/* <img src="YOUR_SCREENSHOT.png" alt={p.title} className="w-full h-full object-cover" /> */}
+        ⬆ drop dashboard screenshot here
+      </div>
+      <div className="p-5">
+        <div className="font-mono text-xs mb-1" style={{ color: "#F0A24B" }}>{p.tag}</div>
+        <h3 className="text-lg font-bold" style={{ color: "#F2B8C0" }}>{p.title} ↗</h3>
+        <div className="font-mono text-xs mt-1 mb-2" style={{ color: "#a98790" }}>{p.tools}</div>
+        <p className="text-sm leading-relaxed" style={{ color: "#d9c3bd" }}>{p.desc}</p>
+      </div>
+    </a>
+  );
+}
+
 /* ───────────────────────── Data ───────────────────────── */
 const SKILLS = {
   "BI & Visualization": ["Power BI", "DAX", "Power Query", "Data Modeling", "Dashboard Development", "KPI Reporting"],
@@ -230,8 +288,11 @@ export default function Portfolio() {
         @keyframes heroIn { from { opacity: 0; transform: translateY(26px);} to { opacity: 1;} }
         .marquee { animation: slide 18s linear infinite; }
         @keyframes slide { from { transform: translateX(0);} to { transform: translateX(-50%);} }
-        .proj-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px -18px rgba(185,74,59,.45); }
-        @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation: none !important; transition: none !important; } }
+        .proj-card { transition: transform .25s cubic-bezier(.2,.9,.3,1), box-shadow .25s ease; will-change: transform; }
+        .proj-card:hover { box-shadow: 0 18px 40px -18px rgba(185,74,59,.45); }
+        .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.9,.3,1); }
+        .reveal-in { opacity: 1; transform: none; }
+        @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation: none !important; transition: none !important; } .reveal { opacity: 1; transform: none; } }
       `}</style>
 
       {!entered && <Splash onDone={() => setEntered(true)} />}
@@ -343,32 +404,20 @@ export default function Portfolio() {
       {/* ── PROJECTS ── */}
       <div style={{ background: "#221419" }}>
         <section id="projects" className="max-w-5xl mx-auto px-6 py-16">
-          <div className="font-mono text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#F0A24B" }}>
-            04 · shipped
-          </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-8"
-            style={{ fontFamily: "'Syne',sans-serif", color: "#F3E9DC" }}>
-            Projects
-          </h2>
+          <Reveal>
+            <div className="font-mono text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#F0A24B" }}>
+              04 · shipped
+            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-8"
+              style={{ fontFamily: "'Syne',sans-serif", color: "#F3E9DC" }}>
+              Projects
+            </h2>
+          </Reveal>
           <div className="grid md:grid-cols-2 gap-6">
             {PROJECTS.map((p, i) => (
-              <a key={i} href={p.link} target="_blank" rel="noreferrer"
-                className="proj-card block rounded-2xl overflow-hidden transition-all duration-200"
-                style={{ background: "#2b1a21", border: "1.5px solid #4a2f3a" }}>
-                {/* 🖼️ image slot — replace src with your screenshot */}
-                <div className="h-44 flex items-center justify-center font-mono text-sm"
-                  style={{ background: "repeating-linear-gradient(45deg,#33202a,#33202a 12px,#2b1a21 12px,#2b1a21 24px)",
-                           color: "#8a6a75", borderBottom: "1.5px solid #4a2f3a" }}>
-                  {/* <img src="YOUR_SCREENSHOT.png" alt={p.title} className="w-full h-full object-cover" /> */}
-                  ⬆ drop dashboard screenshot here
-                </div>
-                <div className="p-5">
-                  <div className="font-mono text-xs mb-1" style={{ color: "#F0A24B" }}>{p.tag}</div>
-                  <h3 className="text-lg font-bold" style={{ color: "#F2B8C0" }}>{p.title} ↗</h3>
-                  <div className="font-mono text-xs mt-1 mb-2" style={{ color: "#a98790" }}>{p.tools}</div>
-                  <p className="text-sm leading-relaxed" style={{ color: "#d9c3bd" }}>{p.desc}</p>
-                </div>
-              </a>
+              <Reveal key={i} delay={i * 110}>
+                <ProjectCard p={p} />
+              </Reveal>
             ))}
           </div>
         </section>
