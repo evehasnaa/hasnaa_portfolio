@@ -6,7 +6,7 @@ export default function Certifications() {
 
       <div
         className="font-mono tracking-[0.35em] uppercase text-sm mb-3"
-        style={{ color: "#F97316" }}
+        style={{ color: "#F59E0B" }}
       >
         Certifications
       </div>
@@ -54,7 +54,7 @@ export default function Certifications() {
                   className="w-full h-full flex items-center justify-center transition duration-700 group-hover:scale-110"
                   style={{
                     background:
-                      "linear-gradient(135deg,#2563EB 0%,#06B6D4 100%)",
+                      "linear-gradient(135deg,#2563EB 0%,#3B82F6 100%)",
                   }}
                 >
                   <span
@@ -82,7 +82,7 @@ export default function Certifications() {
                   className="px-5 py-3 rounded-full font-semibold"
                   style={{
                     background:
-                      "linear-gradient(90deg,#2563EB,#06B6D4)",
+                      "linear-gradient(90deg,#2563EB,#3B82F6)",
                     color: "#FFFFFF",
                   }}
                 >
@@ -100,7 +100,7 @@ export default function Certifications() {
               <span
                 className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-4"
                 style={{
-                  background: "#E5ECF5",
+                  background: "#E2E8F0",
                   color: "#2563EB",
                 }}
               >

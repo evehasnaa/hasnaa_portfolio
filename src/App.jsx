@@ -2,9 +2,9 @@ import { useState, useEffect, useRef } from "react";
 import Certifications from "./components/Certifications";
 
 /* ─── Design system ───
-   bg      #F8FAFC / #EEF2F7 / #E5ECF5     card #FFFFFF     border #CBD5E1
+   bg      #F8FAFC / #F1F5F9 / #E2E8F0     card #FFFFFF     border #CBD5E1
    text    #0F172A (primary) / #475569 (secondary)
-   primary #2563EB   secondary #06B6D4   accent #F97316 */
+   primary #2563EB   secondary #3B82F6   accent #F59E0B   success #10B981 */
 
 const LINKS = {
   linkedin: "https://www.linkedin.com/in/hasnaa-ahmed-data-analysis/",
@@ -54,7 +54,7 @@ function Splash({ onDone }) {
           <div key={i} className="w-4 rounded-t-md splash-bar"
             style={{
               animationDelay: `${i * 0.12}s`,
-              background: i % 3 === 0 ? "#2563EB" : i % 3 === 1 ? "#06B6D4" : "#F97316",
+              background: i % 3 === 0 ? "#2563EB" : i % 3 === 1 ? "#3B82F6" : "#F59E0B",
             }} />
         ))}
       </div>
@@ -63,19 +63,19 @@ function Splash({ onDone }) {
         {BOOT_LINES.slice(0, lineIdx).map((l, i) => (
           <div key={i} className="boot-line" style={{ opacity: 0.55 + i * 0.1 }}>{l}</div>
         ))}
-        <div className="mt-3" style={{ color: "#F97316" }}>
+        <div className="mt-3" style={{ color: "#F59E0B" }}>
           loading insight… <span className="font-bold">{hex}</span> / x064
         </div>
         <div className="mt-2 h-1.5 rounded-full overflow-hidden" style={{ background: "#1E293B" }}>
           <div className="h-full rounded-full transition-all duration-100"
-            style={{ width: `${pct}%`, background: "linear-gradient(90deg,#2563EB,#06B6D4)" }} />
+            style={{ width: `${pct}%`, background: "linear-gradient(90deg,#2563EB,#3B82F6)" }} />
         </div>
       </div>
 
       <p className="mt-8 text-center px-6 text-xl md:text-2xl font-bold tracking-tight"
         style={{ color: "#F8FAFC", fontFamily: "'Syne',sans-serif" }}>
-        ⭐ <span style={{ color: "#F97316" }}>Stars</span> are the only KPI I can't build a{" "}
-        <span style={{ color: "#06B6D4" }}>dashboard</span> for.
+        ⭐ <span style={{ color: "#F59E0B" }}>Stars</span> are the only KPI I can't build a{" "}
+        <span style={{ color: "#3B82F6" }}>dashboard</span> for.
       </p>
 
     </div>
@@ -84,7 +84,7 @@ function Splash({ onDone }) {
 
 /* ───────────────────────── Small helpers ───────────────────────── */
 const Eyebrow = ({ children }) => (
-  <div className="font-mono text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#F97316" }}>
+  <div className="font-mono text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#F59E0B" }}>
     {children}
   </div>
 );
@@ -136,7 +136,7 @@ function Chip({ children }) {
 
 /* ───────────────────────── Confetti burst ───────────────────────── */
 function burst(x, y) {
-  const colors = ["#2563EB", "#06B6D4", "#F97316", "#F8FAFC"];
+  const colors = ["#2563EB", "#3B82F6", "#F59E0B", "#10B981"];
   for (let i = 0; i < 22; i++) {
     const p = document.createElement("div");
     const s = 6 + Math.random() * 6;
@@ -186,12 +186,12 @@ function ContactCard({ icon, label, value, action, href }) {
       <div className="text-2xl mb-2">{icon}</div>
       <div className="font-mono text-xs tracking-widest uppercase" style={{ color: "#2563EB" }}>{label}</div>
       <div className="font-semibold mt-1 break-all" style={{ color: "#0F172A" }}>{value}</div>
-      <div className="mt-3 text-xs font-mono" style={{ color: "#06B6D4" }}>
+      <div className="mt-3 text-xs font-mono" style={{ color: "#3B82F6" }}>
         {action === "copy" ? "tap to copy ⧉" : "tap to open ↗"}
       </div>
       {toast && (
         <div className="absolute -top-3 right-3 px-3 py-1 rounded-full text-xs font-bold toast-pop"
-          style={{ background: "#F97316", color: "#FFFFFF" }}>
+          style={{ background: "#10B981", color: "#FFFFFF" }}>
           Copied ✓
         </div>
       )}
@@ -218,13 +218,13 @@ function ProjectCard({ p }) {
       style={{ background: "#FFFFFF", border: "1.5px solid #CBD5E1" }}>
       {/* 🖼️ image slot — replace src with your screenshot */}
       <div className="h-44 flex items-center justify-center font-mono text-sm"
-        style={{ background: "repeating-linear-gradient(45deg,#EEF2F7,#EEF2F7 12px,#E5ECF5 12px,#E5ECF5 24px)",
+        style={{ background: "repeating-linear-gradient(45deg,#F1F5F9,#F1F5F9 12px,#E2E8F0 12px,#E2E8F0 24px)",
                  color: "#475569", borderBottom: "1.5px solid #CBD5E1" }}>
         {/* <img src="YOUR_SCREENSHOT.png" alt={p.title} className="w-full h-full object-cover" /> */}
         ⬆ drop dashboard screenshot here
       </div>
       <div className="p-5">
-        <div className="font-mono text-xs mb-1" style={{ color: "#F97316" }}>{p.tag}</div>
+        <div className="font-mono text-xs mb-1" style={{ color: "#F59E0B" }}>{p.tag}</div>
         <h3 className="text-lg font-bold" style={{ color: "#2563EB" }}>{p.title} ↗</h3>
         <div className="font-mono text-xs mt-1 mb-2" style={{ color: "#475569" }}>{p.tools}</div>
         <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>{p.desc}</p>
@@ -296,7 +296,7 @@ export default function Portfolio() {
         .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.9,.3,1); }
         .reveal-in { opacity: 1; transform: none; }
         .btn-primary { background: #2563EB; }
-        .btn-primary:hover { background: #06B6D4; }
+        .btn-primary:hover { background: #3B82F6; }
         .btn-outline { border: 2px solid #2563EB; color: #2563EB; }
         .btn-outline:hover { background: #2563EB; color: #FFFFFF; }
         @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation: none !important; transition: none !important; } .reveal { opacity: 1; transform: none; } }
@@ -308,14 +308,14 @@ export default function Portfolio() {
       <header className="relative overflow-hidden" style={{ background: "#F8FAFC" }}>
         <div className={`max-w-5xl mx-auto px-6 pt-24 pb-16 flex flex-col md:flex-row items-center gap-10 ${entered ? "hero-in" : ""}`}>
           <div className="flex-1">
-          <div className="font-mono text-sm mb-4" style={{ color: "#F97316" }}>
+          <div className="font-mono text-sm mb-4" style={{ color: "#F59E0B" }}>
             {"</>"} hello_world — I'm
           </div>
           <h1 className="font-extrabold leading-[0.95] tracking-tight"
             style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(3rem,9vw,6.5rem)" }}>
             <span style={{ color: "#0F172A" }}>HASNAA</span>{" "}
             <span style={{
-              background: "linear-gradient(90deg,#2563EB 0%,#06B6D4 100%)",
+              background: "linear-gradient(90deg,#2563EB 0%,#3B82F6 100%)",
               WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
               AHMED
             </span>
@@ -345,7 +345,7 @@ export default function Portfolio() {
 
           {/* 🖼️ personal photo slot — replace src with your photo */}
           <div className="w-56 h-56 md:w-64 md:h-64 shrink-0 rounded-3xl overflow-hidden flex items-center justify-center font-mono text-xs text-center p-4"
-            style={{ border: "3px solid #2563EB", background: "repeating-linear-gradient(45deg,#EEF2F7,#EEF2F7 12px,#E5ECF5 12px,#E5ECF5 24px)",
+            style={{ border: "3px solid #2563EB", background: "repeating-linear-gradient(45deg,#F1F5F9,#F1F5F9 12px,#E2E8F0 12px,#E2E8F0 24px)",
                      color: "#475569", boxShadow: "0 10px 30px rgba(15,23,42,.08)" }}>
             {/* <img src="YOUR_PHOTO.jpg" alt="Hasnaa Ahmed" className="w-full h-full object-cover" /> */}
             ⬆ your photo here
@@ -363,7 +363,7 @@ export default function Portfolio() {
       </header>
 
       {/* ── ABOUT ── */}
-      <div style={{ background: "#EEF2F7" }}>
+      <div style={{ background: "#F1F5F9" }}>
         <Section id="about" eyebrow="01 · whoami" title="About">
           <p className="text-lg leading-relaxed max-w-3xl" style={{ color: "#475569" }}>
             Data Analyst focused on <b>e-commerce, sales, and marketing</b> domains — experienced in
@@ -387,16 +387,16 @@ export default function Portfolio() {
       </Section>
 
       {/* ── EXPERIENCE ── */}
-      <div style={{ background: "#EEF2F7" }}>
+      <div style={{ background: "#F1F5F9" }}>
         <Section id="experience" eyebrow="03 · timeline" title="Experience">
           <div className="relative pl-6" style={{ borderLeft: "3px solid #CBD5E1" }}>
             {EXPERIENCE.map((e, i) => (
               <div key={i} className="mb-10 relative">
                 <div className="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full"
-                  style={{ background: "#2563EB", border: "3px solid #EEF2F7" }} />
+                  style={{ background: "#2563EB", border: "3px solid #F1F5F9" }} />
                 <div className="flex flex-wrap items-baseline gap-x-3 pl-2">
                   <h3 className="text-xl font-bold" style={{ color: "#0F172A" }}>{e.role}</h3>
-                  <span className="font-mono text-xs" style={{ color: "#F97316" }}>{e.date}</span>
+                  <span className="font-mono text-xs" style={{ color: "#F59E0B" }}>{e.date}</span>
                 </div>
                 <div className="font-semibold mb-2 pl-2" style={{ color: "#2563EB" }}>{e.org}</div>
                 <ul className="list-disc ml-5 space-y-1" style={{ color: "#475569" }}>
@@ -409,10 +409,10 @@ export default function Portfolio() {
       </div>
 
       {/* ── PROJECTS ── */}
-      <div style={{ background: "#E5ECF5" }}>
+      <div style={{ background: "#E2E8F0" }}>
         <section id="projects" className="max-w-5xl mx-auto px-6 py-16">
           <Reveal>
-            <div className="font-mono text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#F97316" }}>
+            <div className="font-mono text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#F59E0B" }}>
               04 · shipped
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold mb-8"
@@ -434,12 +434,12 @@ export default function Portfolio() {
       <Section id="education" eyebrow="05 · learning" title="Education">
         <div className="grid md:grid-cols-2 gap-6">
           <div className="rounded-2xl p-5 lift-card" style={{ background: "#FFFFFF", border: "1.5px solid #CBD5E1" }}>
-            <div className="font-mono text-xs mb-2" style={{ color: "#F97316" }}>DEGREE</div>
+            <div className="font-mono text-xs mb-2" style={{ color: "#F59E0B" }}>DEGREE</div>
             <p className="font-bold" style={{ color: "#0F172A" }}>B.Sc. Computer Science & Pure Mathematics</p>
             <p style={{ color: "#475569" }}>Al-Azhar University · 2022 – 2027</p>
           </div>
           <div className="rounded-2xl p-5 lift-card" style={{ background: "#FFFFFF", border: "1.5px solid #CBD5E1" }}>
-            <div className="font-mono text-xs mb-2" style={{ color: "#F97316" }}>PROGRAM</div>
+            <div className="font-mono text-xs mb-2" style={{ color: "#F59E0B" }}>PROGRAM</div>
             <p className="font-bold" style={{ color: "#0F172A" }}>Applied Data Science Lab</p>
             <p style={{ color: "#475569" }}>WorldQuant University · 2026 – Present</p>
           </div>
@@ -450,9 +450,9 @@ export default function Portfolio() {
       <Certifications />
 
       {/* ── CONTACT ── */}
-      <div style={{ background: "#EEF2F7" }}>
+      <div style={{ background: "#F1F5F9" }}>
         <section id="contact" className="max-w-5xl mx-auto px-6 py-16">
-          <div className="font-mono text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#F97316" }}>
+          <div className="font-mono text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#F59E0B" }}>
             06 · ping me
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold mb-2"
@@ -472,7 +472,7 @@ export default function Portfolio() {
       </div>
 
       {/* ── FOOTER ── */}
-      <div style={{ background: "#E5ECF5" }}>
+      <div style={{ background: "#E2E8F0" }}>
         <footer className="max-w-5xl mx-auto px-6 py-6 text-center font-mono text-xs"
           style={{ borderTop: "1px solid #CBD5E1", color: "#475569" }}>
           © 2026 Hasnaa Ahmed — built with ☕ and way too many SELECT statements.

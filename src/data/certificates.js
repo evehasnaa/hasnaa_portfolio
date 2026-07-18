@@ -73,7 +73,7 @@ export const CERTIFICATES = [
   {
     id: 7,
     title: "DEPI Data Analytics Track",
-    issuer: "MCIT Egypt",
+    issuer: "DEPI Egypt",
     category: "Data Analytics",
     date: "2024 – 2025",
     image: null,
