@@ -299,13 +299,34 @@ export default function Portfolio() {
         .btn-primary:hover { background: #3B82F6; }
         .btn-outline { border: 2px solid #2563EB; color: #2563EB; }
         .btn-outline:hover { background: #2563EB; color: #FFFFFF; }
+        .bg-anim { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
+          background: linear-gradient(120deg,#F8FAFC 0%,#EFF6FF 25%,#F8FAFC 50%,#FEF9EC 75%,#F8FAFC 100%);
+          background-size: 300% 300%; animation: bgShift 26s ease-in-out infinite alternate; }
+        @keyframes bgShift { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
+        .blob { position: absolute; border-radius: 9999px; filter: blur(90px); will-change: transform;
+          animation: drift 20s ease-in-out infinite alternate; }
+        @keyframes drift {
+          0%   { transform: translate(0,0) scale(1); }
+          50%  { transform: translate(90px,-70px) scale(1.12); }
+          100% { transform: translate(-70px,60px) scale(.95); }
+        }
         @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation: none !important; transition: none !important; } .reveal { opacity: 1; transform: none; } }
       `}</style>
 
       {!entered && <Splash onDone={() => setEntered(true)} />}
 
+      {/* ── ANIMATED BACKGROUND ── */}
+      <div className="bg-anim" aria-hidden="true">
+        <div className="blob" style={{ width: "48vw", height: "48vw", top: "-12%", left: "-10%", background: "rgba(37,99,235,.16)", animationDuration: "22s" }} />
+        <div className="blob" style={{ width: "42vw", height: "42vw", top: "20%", right: "-12%", background: "rgba(59,130,246,.14)", animationDuration: "26s", animationDelay: "-6s" }} />
+        <div className="blob" style={{ width: "40vw", height: "40vw", bottom: "-10%", left: "12%", background: "rgba(245,158,11,.12)", animationDuration: "24s", animationDelay: "-12s" }} />
+        <div className="blob" style={{ width: "34vw", height: "34vw", bottom: "18%", right: "18%", background: "rgba(16,185,129,.10)", animationDuration: "28s", animationDelay: "-18s" }} />
+      </div>
+
+      <div className="relative z-10">
+
       {/* ── HERO ── */}
-      <header className="relative overflow-hidden" style={{ background: "#F8FAFC" }}>
+      <header className="relative overflow-hidden">
         <div className={`max-w-5xl mx-auto px-6 pt-24 pb-16 flex flex-col md:flex-row items-center gap-10 ${entered ? "hero-in" : ""}`}>
           <div className="flex-1">
           <div className="font-mono text-sm mb-4" style={{ color: "#F59E0B" }}>
@@ -363,7 +384,7 @@ export default function Portfolio() {
       </header>
 
       {/* ── ABOUT ── */}
-      <div style={{ background: "#F1F5F9" }}>
+      <div>
         <Section id="about" eyebrow="01 · whoami" title="About">
           <p className="text-lg leading-relaxed max-w-3xl" style={{ color: "#475569" }}>
             Data Analyst focused on <b>e-commerce, sales, and marketing</b> domains — experienced in
@@ -387,13 +408,13 @@ export default function Portfolio() {
       </Section>
 
       {/* ── EXPERIENCE ── */}
-      <div style={{ background: "#F1F5F9" }}>
+      <div>
         <Section id="experience" eyebrow="03 · timeline" title="Experience">
           <div className="relative pl-6" style={{ borderLeft: "3px solid #CBD5E1" }}>
             {EXPERIENCE.map((e, i) => (
               <div key={i} className="mb-10 relative">
                 <div className="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full"
-                  style={{ background: "#2563EB", border: "3px solid #F1F5F9" }} />
+                  style={{ background: "#2563EB", border: "3px solid #F8FAFC" }} />
                 <div className="flex flex-wrap items-baseline gap-x-3 pl-2">
                   <h3 className="text-xl font-bold" style={{ color: "#0F172A" }}>{e.role}</h3>
                   <span className="font-mono text-xs" style={{ color: "#F59E0B" }}>{e.date}</span>
@@ -409,7 +430,7 @@ export default function Portfolio() {
       </div>
 
       {/* ── PROJECTS ── */}
-      <div style={{ background: "#E2E8F0" }}>
+      <div>
         <section id="projects" className="max-w-5xl mx-auto px-6 py-16">
           <Reveal>
             <div className="font-mono text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#F59E0B" }}>
@@ -450,7 +471,7 @@ export default function Portfolio() {
       <Certifications />
 
       {/* ── CONTACT ── */}
-      <div style={{ background: "#F1F5F9" }}>
+      <div>
         <section id="contact" className="max-w-5xl mx-auto px-6 py-16">
           <div className="font-mono text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#F59E0B" }}>
             06 · ping me
@@ -472,11 +493,13 @@ export default function Portfolio() {
       </div>
 
       {/* ── FOOTER ── */}
-      <div style={{ background: "#E2E8F0" }}>
+      <div>
         <footer className="max-w-5xl mx-auto px-6 py-6 text-center font-mono text-xs"
           style={{ borderTop: "1px solid #CBD5E1", color: "#475569" }}>
           © 2026 Hasnaa Ahmed — built with ☕ and way too many SELECT statements.
         </footer>
+      </div>
+
       </div>
     </div>
   );
