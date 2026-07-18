@@ -6,7 +6,7 @@ export default function Certifications() {
 
       <div
         className="font-mono tracking-[0.35em] uppercase text-sm mb-3"
-        style={{ color: "#B94A3B" }}
+        style={{ color: "#F97316" }}
       >
         Certifications
       </div>
@@ -15,7 +15,7 @@ export default function Certifications() {
         className="text-4xl font-extrabold mb-12"
         style={{
           fontFamily: "'Syne',sans-serif",
-          color: "#221419",
+          color: "#0F172A",
         }}
       >
         Professional Certifications
@@ -30,11 +30,11 @@ export default function Certifications() {
             href={cert.credential}
             target="_blank"
             rel="noopener noreferrer"
-            className="group rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl"
+            className="group rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-3"
             style={{
-              background: "#FFFDFB",
-              border: "1.5px solid #E7D8CC",
-              boxShadow: "0 2px 12px -8px rgba(34,20,25,.10)",
+              background: "#FFFFFF",
+              border: "1.5px solid #CBD5E1",
+              boxShadow: "0 4px 14px rgba(15,23,42,.06)",
             }}
           >
 
@@ -54,14 +54,14 @@ export default function Certifications() {
                   className="w-full h-full flex items-center justify-center transition duration-700 group-hover:scale-110"
                   style={{
                     background:
-                      "linear-gradient(135deg,#F2B8C0 0%,#F0A24B 100%)",
+                      "linear-gradient(135deg,#2563EB 0%,#06B6D4 100%)",
                   }}
                 >
                   <span
                     className="text-5xl font-extrabold"
                     style={{
                       fontFamily: "'Syne',sans-serif",
-                      color: "#221419",
+                      color: "#FFFFFF",
                     }}
                   >
                     {cert.issuer.charAt(0)}
@@ -74,7 +74,7 @@ export default function Certifications() {
               <div
                 className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500"
                 style={{
-                  background: "rgba(34,20,25,.55)",
+                  background: "rgba(15,23,42,.55)",
                 }}
               >
 
@@ -82,8 +82,8 @@ export default function Certifications() {
                   className="px-5 py-3 rounded-full font-semibold"
                   style={{
                     background:
-                      "linear-gradient(90deg,#B94A3B,#F0A24B)",
-                    color: "#221419",
+                      "linear-gradient(90deg,#2563EB,#06B6D4)",
+                    color: "#FFFFFF",
                   }}
                 >
                   View Credential →
@@ -100,8 +100,8 @@ export default function Certifications() {
               <span
                 className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-4"
                 style={{
-                  background: "#F2B8C0",
-                  color: "#221419",
+                  background: "#E5ECF5",
+                  color: "#2563EB",
                 }}
               >
                 {cert.category}
@@ -110,7 +110,7 @@ export default function Certifications() {
               <h3
                 className="text-xl font-bold mb-2"
                 style={{
-                  color: "#221419",
+                  color: "#0F172A",
                 }}
               >
                 {cert.title}
@@ -119,7 +119,7 @@ export default function Certifications() {
               <p
                 className="text-sm"
                 style={{
-                  color: "#6B5A56",
+                  color: "#475569",
                 }}
               >
                 <strong>Issued by:</strong> {cert.issuer}
@@ -128,7 +128,7 @@ export default function Certifications() {
               <p
                 className="text-sm mt-2"
                 style={{
-                  color: "#6B5A56",
+                  color: "#475569",
                 }}
               >
                 <strong>Date:</strong> {cert.date}
