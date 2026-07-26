@@ -1,5 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import Certifications from "./components/Certifications";
+import hasnaaPhoto from "./img/hasnaa .jpeg";
+import marketingImg from "./img/markiting-1_page-0001.jpg";
+import ecommerceImg from "./img/ecomerace.png";
 
 /* ─── Design system ───
    bg      #F8FAFC / #F1F5F9 / #E2E8F0     card #FFFFFF     border #CBD5E1
@@ -216,12 +219,13 @@ function ProjectCard({ p }) {
       onMouseLeave={() => (ref.current.style.transform = "")}
       className="proj-card block rounded-2xl overflow-hidden"
       style={{ background: "#FFFFFF", border: "1.5px solid #CBD5E1" }}>
-      {/* 🖼️ image slot — replace src with your screenshot */}
+      {/* 🖼️ image slot */}
       <div className="h-44 flex items-center justify-center font-mono text-sm"
         style={{ background: "repeating-linear-gradient(45deg,#F1F5F9,#F1F5F9 12px,#E2E8F0 12px,#E2E8F0 24px)",
                  color: "#475569", borderBottom: "1.5px solid #CBD5E1" }}>
-        {/* <img src="YOUR_SCREENSHOT.png" alt={p.title} className="w-full h-full object-cover" /> */}
-        ⬆ drop dashboard screenshot here
+        {p.img
+          ? <img src={p.img} alt={p.title} className="w-full h-full object-cover" />
+          : <>⬆ drop dashboard screenshot here</>}
       </div>
       <div className="p-5">
         <div className="font-mono text-xs mb-1" style={{ color: "#F59E0B" }}>{p.tag}</div>
@@ -256,12 +260,15 @@ const EXPERIENCE = [
 const PROJECTS = [
   { title: "E-Commerce Customer Segmentation", tag: "Customer & Sales Analytics",
     tools: "Python · SQL Server · Power BI · DAX", link: "https://github.com/evehasnaa/bootcamp-data-analysis",
+    img: ecommerceImg,
     desc: "Segmentation & behavioral analysis on SQL Server transaction data — CLV, AOV, Retention, MoM & YoY growth — served through interactive Power BI dashboards for marketing and sales decisions." },
   { title: "LinkedIn Job Market Analysis", tag: "Labor Market & Recruitment Analytics",
     tools: "Python · Power BI · DAX · Power Query", link: "https://www.datascienceportfol.io/hasnaaahmed",
     desc: "327 job postings from 193 companies cleaned with Pandas & Power Query; dashboard with custom DAX measures surfacing a $156K average-salary benchmark, top hiring regions, and 5 job families." },
   { title: "Multi-Platform Marketing Analytics", tag: "Marketing Performance Analytics",
-    tools: "Power BI · DAX · Power Query", link: "https://github.com/evehasnaa",
+    tools: "Power BI · DAX · Power Query",
+    link: "https://app.powerbi.com/view?r=eyJrIjoiMTAxYzZkZTgtYzEzNS00ZTVlLTlhNTMtYmU2NjhlYmU3MTUwIiwidCI6IjJiYjZlNWJjLWMxMDktNDdmYi05NDMzLWMxYzZmNGZhMzNmZiIsImMiOjl9",
+    img: marketingImg,
     desc: "4-page report analyzing 20 campaigns across Facebook, Instagram & TikTok — 10+ DAX measures tracking ROI, CPC, CPA, CTR and conversion, with dynamic metric-switching and synced slicers." },
   { title: "Healthcare Analytics — End to End", tag: "Analytics Engineering · Medallion",
     tools: "Python · SQL Server · Power BI · TMDL", link: "https://github.com/evehasnaa/healthcare-analysis-end-to-end-project-",
@@ -364,12 +371,11 @@ export default function Portfolio() {
           </div>
           </div>
 
-          {/* 🖼️ personal photo slot — replace src with your photo */}
-          <div className="w-56 h-56 md:w-64 md:h-64 shrink-0 rounded-3xl overflow-hidden flex items-center justify-center font-mono text-xs text-center p-4"
-            style={{ border: "3px solid #2563EB", background: "repeating-linear-gradient(45deg,#F1F5F9,#F1F5F9 12px,#E2E8F0 12px,#E2E8F0 24px)",
-                     color: "#475569", boxShadow: "0 10px 30px rgba(15,23,42,.08)" }}>
-            {/* <img src="YOUR_PHOTO.jpg" alt="Hasnaa Ahmed" className="w-full h-full object-cover" /> */}
-            ⬆ your photo here
+          {/* 🖼️ personal photo */}
+          <div className="w-56 h-56 md:w-64 md:h-64 shrink-0 rounded-3xl overflow-hidden flex items-center justify-center"
+            style={{ border: "3px solid #2563EB", background: "#F1F5F9",
+                     boxShadow: "0 10px 30px rgba(15,23,42,.08)" }}>
+            <img src={hasnaaPhoto} alt="Hasnaa Ahmed" className="w-full h-full object-cover" />
           </div>
         </div>
 
