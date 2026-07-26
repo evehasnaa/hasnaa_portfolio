@@ -15,7 +15,7 @@ export default function Certifications() {
         className="text-4xl font-extrabold mb-12"
         style={{
           fontFamily: "'Syne',sans-serif",
-          color: "#0F172A",
+          color: "#F8FAFC",
         }}
       >
         Professional Certifications

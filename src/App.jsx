@@ -119,7 +119,7 @@ function Section({ id, eyebrow, title, children }) {
     <section id={id} className="max-w-5xl mx-auto px-6 py-16">
       <Reveal>
         <Eyebrow>{eyebrow}</Eyebrow>
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-8" style={{ fontFamily: "'Syne',sans-serif", color: "#0F172A" }}>
+        <h2 className="text-3xl md:text-4xl font-extrabold mb-8" style={{ fontFamily: "'Syne',sans-serif", color: "#F8FAFC" }}>
           {title}
         </h2>
       </Reveal>
@@ -278,7 +278,7 @@ export default function Portfolio() {
   const [entered, setEntered] = useState(false);
 
   return (
-    <div style={{ background: "#F8FAFC", fontFamily: "'Manrope',sans-serif" }} className="min-h-screen">
+    <div style={{ background: "#0B1730", fontFamily: "'Manrope',sans-serif" }} className="min-h-screen">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
         html { scroll-behavior: smooth; }
@@ -308,10 +308,10 @@ export default function Portfolio() {
         .reveal-in { opacity: 1; transform: none; }
         .btn-primary { background: #2563EB; }
         .btn-primary:hover { background: #3B82F6; }
-        .btn-outline { border: 2px solid #2563EB; color: #2563EB; }
-        .btn-outline:hover { background: #2563EB; color: #FFFFFF; }
+        .btn-outline { border: 2px solid #60A5FA; color: #60A5FA; }
+        .btn-outline:hover { background: #2563EB; border-color: #2563EB; color: #FFFFFF; }
         .bg-anim { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
-          background: linear-gradient(120deg,#F8FAFC 0%,#EFF6FF 25%,#F8FAFC 50%,#FEF9EC 75%,#F8FAFC 100%);
+          background: linear-gradient(120deg,#0B1730 0%,#0F1E3A 25%,#0B1730 50%,#122447 75%,#0B1730 100%);
           background-size: 300% 300%; animation: bgShift 26s ease-in-out infinite alternate; }
         @keyframes bgShift { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
         .blob { position: absolute; border-radius: 9999px; filter: blur(90px); will-change: transform;
@@ -345,17 +345,17 @@ export default function Portfolio() {
           </div>
           <h1 className="font-extrabold leading-[0.95] tracking-tight"
             style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(3rem,9vw,6.5rem)" }}>
-            <span style={{ color: "#0F172A" }}>HASNAA</span>{" "}
+            <span style={{ color: "#F8FAFC" }}>HASNAA</span>{" "}
             <span style={{
               background: "linear-gradient(90deg,#2563EB 0%,#3B82F6 100%)",
               WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
               AHMED
             </span>
           </h1>
-          <p className="mt-5 text-lg md:text-2xl font-semibold" style={{ color: "#0F172A" }}>
+          <p className="mt-5 text-lg md:text-2xl font-semibold" style={{ color: "#F8FAFC" }}>
             Data Analyst · Business Intelligence
           </p>
-          <p className="mt-3 max-w-xl" style={{ color: "#475569" }}>
+          <p className="mt-3 max-w-xl" style={{ color: "#CBD5E1" }}>
             Turning raw data into business decisions — e-commerce, sales & marketing analytics
             with Power BI, SQL, and Python.
           </p>
@@ -396,7 +396,7 @@ export default function Portfolio() {
       {/* ── ABOUT ── */}
       <div>
         <Section id="about" eyebrow="01 · whoami" title="About">
-          <p className="text-lg leading-relaxed max-w-3xl" style={{ color: "#475569" }}>
+          <p className="text-lg leading-relaxed max-w-3xl" style={{ color: "#CBD5E1" }}>
             Data Analyst focused on <b>e-commerce, sales, and marketing</b> domains — experienced in
             end-to-end analytics from <b>data modeling and ETL</b> to <b>dashboards and stakeholder
             reporting</b>. B.Sc. student in Computer Science & Pure Mathematics at Al-Azhar University,
@@ -407,30 +407,34 @@ export default function Portfolio() {
 
       {/* ── SKILLS ── */}
       <Section id="skills" eyebrow="02 · toolbox" title="Skills">
-        <div className="grid md:grid-cols-2 gap-8">
-          {Object.entries(SKILLS).map(([cat, items]) => (
-            <div key={cat}>
-              <div className="font-mono text-sm font-semibold mb-3" style={{ color: "#2563EB" }}>▸ {cat}</div>
-              <div className="flex flex-wrap gap-2">{items.map((s) => <Chip key={s}>{s}</Chip>)}</div>
-            </div>
-          ))}
+        <div className="rounded-3xl p-8 md:p-10"
+          style={{ background: "#111F3D", border: "1.5px solid #64748B",
+                   boxShadow: "0 12px 40px rgba(100,116,139,.35), 0 4px 14px rgba(15,23,42,.4)" }}>
+          <div className="grid md:grid-cols-2 gap-8">
+            {Object.entries(SKILLS).map(([cat, items]) => (
+              <div key={cat}>
+                <div className="font-mono text-sm font-semibold mb-3" style={{ color: "#60A5FA" }}>▸ {cat}</div>
+                <div className="flex flex-wrap gap-2">{items.map((s) => <Chip key={s}>{s}</Chip>)}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </Section>
 
       {/* ── EXPERIENCE ── */}
       <div>
         <Section id="experience" eyebrow="03 · timeline" title="Experience">
-          <div className="relative pl-6" style={{ borderLeft: "3px solid #CBD5E1" }}>
+          <div className="relative pl-6" style={{ borderLeft: "3px solid #334155" }}>
             {EXPERIENCE.map((e, i) => (
               <div key={i} className="mb-10 relative">
                 <div className="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full"
-                  style={{ background: "#2563EB", border: "3px solid #F8FAFC" }} />
+                  style={{ background: "#2563EB", border: "3px solid #0B1730" }} />
                 <div className="flex flex-wrap items-baseline gap-x-3 pl-2">
-                  <h3 className="text-xl font-bold" style={{ color: "#0F172A" }}>{e.role}</h3>
+                  <h3 className="text-xl font-bold" style={{ color: "#F8FAFC" }}>{e.role}</h3>
                   <span className="font-mono text-xs" style={{ color: "#F59E0B" }}>{e.date}</span>
                 </div>
-                <div className="font-semibold mb-2 pl-2" style={{ color: "#2563EB" }}>{e.org}</div>
-                <ul className="list-disc ml-5 space-y-1" style={{ color: "#475569" }}>
+                <div className="font-semibold mb-2 pl-2" style={{ color: "#60A5FA" }}>{e.org}</div>
+                <ul className="list-disc ml-5 space-y-1" style={{ color: "#CBD5E1" }}>
                   {e.points.map((p, j) => <li key={j}>{p}</li>)}
                 </ul>
               </div>
@@ -447,7 +451,7 @@ export default function Portfolio() {
               04 · shipped
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold mb-8"
-              style={{ fontFamily: "'Syne',sans-serif", color: "#0F172A" }}>
+              style={{ fontFamily: "'Syne',sans-serif", color: "#F8FAFC" }}>
               Projects
             </h2>
           </Reveal>
@@ -487,10 +491,10 @@ export default function Portfolio() {
             06 · ping me
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold mb-2"
-            style={{ fontFamily: "'Syne',sans-serif", color: "#0F172A" }}>
+            style={{ fontFamily: "'Syne',sans-serif", color: "#F8FAFC" }}>
             Let's build something with data.
           </h2>
-          <p className="mb-8 font-mono text-sm" style={{ color: "#475569" }}>
+          <p className="mb-8 font-mono text-sm" style={{ color: "#94A3B8" }}>
             response_time ≈ faster than a Power BI refresh 😉
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -505,7 +509,7 @@ export default function Portfolio() {
       {/* ── FOOTER ── */}
       <div>
         <footer className="max-w-5xl mx-auto px-6 py-6 text-center font-mono text-xs"
-          style={{ borderTop: "1px solid #CBD5E1", color: "#475569" }}>
+          style={{ borderTop: "1px solid #334155", color: "#94A3B8" }}>
           © 2026 Hasnaa Ahmed — built with ☕ and way too many SELECT statements.
         </footer>
       </div>
