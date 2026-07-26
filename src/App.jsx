@@ -236,6 +236,13 @@ function ProjectCard({ p }) {
 }
 
 /* ───────────────────────── Data ───────────────────────── */
+const SKILL_ICONS = {
+  "BI & Visualization": "📊",
+  "SQL & Databases": "🗄️",
+  "Python & Analytics": "🐍",
+  "Tools": "🧰",
+};
+
 const SKILLS = {
   "BI & Visualization": ["Power BI", "DAX", "Power Query", "Data Modeling", "Dashboard Development", "KPI Reporting"],
   "SQL & Databases": ["Advanced SQL (CTEs, Window Functions)", "SQL Server", "MySQL", "PostgreSQL"],
@@ -393,33 +400,52 @@ export default function Portfolio() {
         </div>
       </header>
 
-      {/* ── ABOUT ── */}
-      <div>
-        <Section id="about" eyebrow="01 · whoami" title="About">
-          <p className="text-lg leading-relaxed max-w-3xl" style={{ color: "#CBD5E1" }}>
-            Data Analyst focused on <b>e-commerce, sales, and marketing</b> domains — experienced in
-            end-to-end analytics from <b>data modeling and ETL</b> to <b>dashboards and stakeholder
-            reporting</b>. B.Sc. student in Computer Science & Pure Mathematics at Al-Azhar University,
-            DEPI Data Analytics graduate, and currently in WorldQuant University's Applied Data Science Lab.
-          </p>
-        </Section>
-      </div>
+      {/* ── ABOUT + SKILLS (side by side) ── */}
+      <section className="max-w-5xl mx-auto px-6 py-16">
+        <div className="grid md:grid-cols-2 gap-10 items-start">
+          <div id="about">
+            <Reveal>
+              <Eyebrow>01 · whoami</Eyebrow>
+              <h2 className="text-3xl md:text-4xl font-extrabold mb-8" style={{ fontFamily: "'Syne',sans-serif", color: "#F8FAFC" }}>
+                About
+              </h2>
+            </Reveal>
+            <Reveal delay={120}>
+              <p className="text-lg leading-relaxed" style={{ color: "#CBD5E1" }}>
+                Data Analyst focused on <b>e-commerce, sales, and marketing</b> domains — experienced in
+                end-to-end analytics from <b>data modeling and ETL</b> to <b>dashboards and stakeholder
+                reporting</b>. B.Sc. student in Computer Science & Pure Mathematics at Al-Azhar University,
+                DEPI Data Analytics graduate, and currently in WorldQuant University's Applied Data Science Lab.
+              </p>
+            </Reveal>
+          </div>
 
-      {/* ── SKILLS ── */}
-      <Section id="skills" eyebrow="02 · toolbox" title="Skills">
-        <div className="rounded-3xl p-8 md:p-10"
-          style={{ background: "#111F3D", border: "1.5px solid #64748B",
-                   boxShadow: "0 12px 40px rgba(100,116,139,.35), 0 4px 14px rgba(15,23,42,.4)" }}>
-          <div className="grid md:grid-cols-2 gap-8">
-            {Object.entries(SKILLS).map(([cat, items]) => (
-              <div key={cat}>
-                <div className="font-mono text-sm font-semibold mb-3" style={{ color: "#60A5FA" }}>▸ {cat}</div>
-                <div className="flex flex-wrap gap-2">{items.map((s) => <Chip key={s}>{s}</Chip>)}</div>
+          <div id="skills">
+            <Reveal>
+              <Eyebrow>02 · toolbox</Eyebrow>
+              <h2 className="text-3xl md:text-4xl font-extrabold mb-8" style={{ fontFamily: "'Syne',sans-serif", color: "#F8FAFC" }}>
+                Skills
+              </h2>
+            </Reveal>
+            <Reveal delay={120}>
+              <div className="rounded-3xl p-8"
+                style={{ background: "#111F3D", border: "1.5px solid #64748B",
+                         boxShadow: "0 12px 40px rgba(100,116,139,.35), 0 4px 14px rgba(15,23,42,.4)" }}>
+                <div className="grid grid-cols-1 gap-8">
+                  {Object.entries(SKILLS).map(([cat, items]) => (
+                    <div key={cat}>
+                      <div className="font-mono text-sm font-semibold mb-3" style={{ color: "#60A5FA" }}>
+                        {SKILL_ICONS[cat]} {cat}
+                      </div>
+                      <div className="flex flex-wrap gap-2">{items.map((s) => <Chip key={s}>{s}</Chip>)}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
+            </Reveal>
           </div>
         </div>
-      </Section>
+      </section>
 
       {/* ── EXPERIENCE ── */}
       <div>
