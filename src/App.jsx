@@ -207,10 +207,10 @@ function ProjectCard({ p }) {
   return (
     <a href={p.link} target="_blank" rel="noreferrer"
       className="proj-card flex flex-col md:flex-row rounded-2xl overflow-hidden"
-      style={{ background: "#FFFFFF", border: "1.5px solid #CBD5E1" }}>
+      style={{ background: "#111F3D", border: "1.5px solid #334155" }}>
       {/* 🖼️ image panel — left 40% */}
       <div className="proj-img relative h-52 md:h-auto md:w-[40%] shrink-0 overflow-hidden flex items-center justify-center font-mono text-sm"
-        style={{ background: "#F1F5F9", color: "#475569" }}>
+        style={{ background: "#0F1E3A", color: "#94A3B8" }}>
         {p.img
           ? <img src={p.img} alt={p.title} className="absolute inset-0 w-full h-full object-cover" />
           : <>⬆ drop dashboard screenshot here</>}
@@ -218,18 +218,18 @@ function ProjectCard({ p }) {
       {/* content — right 60% */}
       <div className="p-6 md:w-[60%]">
         <div className="font-mono text-xs uppercase tracking-[0.2em] mb-2" style={{ color: "#F59E0B" }}>{p.tag}</div>
-        <h3 className="text-xl md:text-2xl" style={{ color: "#2563EB", fontWeight: 700 }}>
+        <h3 className="text-xl md:text-2xl" style={{ color: "#60A5FA", fontWeight: 700 }}>
           {p.title} <span className="proj-arrow">↗</span>
         </h3>
         <div className="flex flex-wrap gap-2 mt-3 mb-3">
           {p.tools.split("·").map((t) => (
             <span key={t} className="font-mono text-xs px-2.5 py-1 rounded-full"
-              style={{ background: "#F1F5F9", border: "1px solid #CBD5E1", color: "#475569" }}>
+              style={{ background: "#0B1730", border: "1px solid #334155", color: "#CBD5E1" }}>
               {t.trim()}
             </span>
           ))}
         </div>
-        <p className="text-sm" style={{ color: "#475569", lineHeight: 1.7 }}>{p.desc}</p>
+        <p className="text-sm" style={{ color: "#CBD5E1", lineHeight: 1.7 }}>{p.desc}</p>
       </div>
     </a>
   );

@@ -32,9 +32,9 @@ export default function Certifications() {
             rel="noopener noreferrer"
             className="group rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-3"
             style={{
-              background: "#FFFFFF",
-              border: "1.5px solid #CBD5E1",
-              boxShadow: "0 4px 14px rgba(15,23,42,.06)",
+              background: "#111F3D",
+              border: "1.5px solid #334155",
+              boxShadow: "0 4px 14px rgba(15,23,42,.35)",
             }}
           >
 
@@ -100,8 +100,8 @@ export default function Certifications() {
               <span
                 className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-4"
                 style={{
-                  background: "#E2E8F0",
-                  color: "#2563EB",
+                  background: "#0B1730",
+                  color: "#60A5FA",
                 }}
               >
                 {cert.category}
@@ -110,7 +110,7 @@ export default function Certifications() {
               <h3
                 className="text-xl font-bold mb-2"
                 style={{
-                  color: "#0F172A",
+                  color: "#F8FAFC",
                 }}
               >
                 {cert.title}
@@ -119,7 +119,7 @@ export default function Certifications() {
               <p
                 className="text-sm"
                 style={{
-                  color: "#475569",
+                  color: "#94A3B8",
                 }}
               >
                 <strong>Issued by:</strong> {cert.issuer}
@@ -128,7 +128,7 @@ export default function Certifications() {
               <p
                 className="text-sm mt-2"
                 style={{
-                  color: "#475569",
+                  color: "#94A3B8",
                 }}
               >
                 <strong>Date:</strong> {cert.date}
