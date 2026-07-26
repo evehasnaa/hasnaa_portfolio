@@ -279,7 +279,7 @@ export default function Portfolio() {
   const [entered, setEntered] = useState(false);
 
   return (
-    <div style={{ background: "#F8FAFC", fontFamily: "'Manrope',sans-serif" }} className="min-h-screen">
+    <div style={{ background: "transparent", fontFamily: "'Manrope',sans-serif" }} className="min-h-screen">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
         html { scroll-behavior: smooth; }
@@ -311,17 +311,6 @@ export default function Portfolio() {
         .btn-primary:hover { background: #3B82F6; }
         .btn-outline { border: 2px solid #2563EB; color: #2563EB; }
         .btn-outline:hover { background: #2563EB; color: #FFFFFF; }
-        .bg-anim { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
-          background: linear-gradient(120deg,#F8FAFC 0%,#EFF6FF 25%,#F8FAFC 50%,#FEF9EC 75%,#F8FAFC 100%);
-          background-size: 300% 300%; animation: bgShift 26s ease-in-out infinite alternate; }
-        @keyframes bgShift { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
-        .blob { position: absolute; border-radius: 9999px; filter: blur(90px); will-change: transform;
-          animation: drift 20s ease-in-out infinite alternate; }
-        @keyframes drift {
-          0%   { transform: translate(0,0) scale(1); }
-          50%  { transform: translate(90px,-70px) scale(1.12); }
-          100% { transform: translate(-70px,60px) scale(.95); }
-        }
         @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation: none !important; transition: none !important; } .reveal { opacity: 1; transform: none; } }
       `}</style>
 
@@ -329,14 +318,6 @@ export default function Portfolio() {
 
       {/* ── 3D ANIMATED BACKGROUND ── */}
       <AnimatedBackground />
-
-      {/* ── ANIMATED BACKGROUND ── */}
-      <div className="bg-anim" aria-hidden="true">
-        <div className="blob" style={{ width: "48vw", height: "48vw", top: "-12%", left: "-10%", background: "rgba(37,99,235,.16)", animationDuration: "22s" }} />
-        <div className="blob" style={{ width: "42vw", height: "42vw", top: "20%", right: "-12%", background: "rgba(59,130,246,.14)", animationDuration: "26s", animationDelay: "-6s" }} />
-        <div className="blob" style={{ width: "40vw", height: "40vw", bottom: "-10%", left: "12%", background: "rgba(245,158,11,.12)", animationDuration: "24s", animationDelay: "-12s" }} />
-        <div className="blob" style={{ width: "34vw", height: "34vw", bottom: "18%", right: "18%", background: "rgba(16,185,129,.10)", animationDuration: "28s", animationDelay: "-18s" }} />
-      </div>
 
       <div className="relative z-10">
 
