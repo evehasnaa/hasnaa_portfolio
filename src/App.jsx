@@ -264,11 +264,11 @@ const EXPERIENCE = [
 
 const PROJECTS = [
   { title: "E-Commerce Customer Segmentation", tag: "Customer & Sales Analytics",
-    tools: "Python · SQL Server · Power BI · DAX", link: "https://github.com/evehasnaa/bootcamp-data-analysis",
+    tools: "Python · SQL Server · Power BI · DAX", link: "https://github.com/evehasnaa/bootcamp-data-analysis/blob/main/image%20dashboard/Screenshot%20(236).png",
     img: ecommerceImg,
     desc: "Segmentation & behavioral analysis on SQL Server transaction data — CLV, AOV, Retention, MoM & YoY growth — served through interactive Power BI dashboards for marketing and sales decisions." },
   { title: "LinkedIn Job Market Analysis", tag: "Labor Market & Recruitment Analytics",
-    tools: "Python · Power BI · DAX · Power Query", link: "https://www.datascienceportfol.io/hasnaaahmed",
+    tools: "Python · Power BI · DAX · Power Query", link: "https://github.com/evehasnaa/LINKEDIN-JOP-DATA-ANALYSIS-PROJECT-",
     desc: "327 job postings from 193 companies cleaned with Pandas & Power Query; dashboard with custom DAX measures surfacing a $156K average-salary benchmark, top hiring regions, and 5 job families." },
   { title: "Multi-Platform Marketing Analytics", tag: "Marketing Performance Analytics",
     tools: "Power BI · DAX · Power Query",
@@ -285,7 +285,7 @@ export default function Portfolio() {
   const [entered, setEntered] = useState(false);
 
   return (
-    <div style={{ background: "#0B1730", fontFamily: "'Manrope',sans-serif" }} className="min-h-screen">
+    <div style={{ background: "#0A1628", fontFamily: "'Manrope',sans-serif" }} className="min-h-screen">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
         html { scroll-behavior: smooth; }
@@ -318,7 +318,7 @@ export default function Portfolio() {
         .btn-outline { border: 2px solid #60A5FA; color: #60A5FA; }
         .btn-outline:hover { background: #2563EB; border-color: #2563EB; color: #FFFFFF; }
         .bg-anim { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
-          background: linear-gradient(120deg,#0B1730 0%,#0F1E3A 25%,#0B1730 50%,#122447 75%,#0B1730 100%);
+          background: linear-gradient(120deg,#0A1628 0%,#0D1B33 25%,#0A1628 50%,#102040 75%,#0A1628 100%);
           background-size: 300% 300%; animation: bgShift 26s ease-in-out infinite alternate; }
         @keyframes bgShift { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
         .blob { position: absolute; border-radius: 9999px; filter: blur(90px); will-change: transform;
@@ -454,7 +454,7 @@ export default function Portfolio() {
             {EXPERIENCE.map((e, i) => (
               <div key={i} className="mb-10 relative">
                 <div className="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full"
-                  style={{ background: "#2563EB", border: "3px solid #0B1730" }} />
+                  style={{ background: "#2563EB", border: "3px solid #0A1628" }} />
                 <div className="flex flex-wrap items-baseline gap-x-3 pl-2">
                   <h3 className="text-xl font-bold" style={{ color: "#F8FAFC" }}>{e.role}</h3>
                   <span className="font-mono text-xs" style={{ color: "#F59E0B" }}>{e.date}</span>

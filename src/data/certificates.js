@@ -19,7 +19,7 @@ export const CERTIFICATES = [
     issuer: "DataCamp",
     category: "SQL",
     date: "2025",
-    image: datacampSqlImg,
+    image:       "https://github.com/evehasnaa/my-certification-/blob/main/Associate%20Data%20Analyst%20in%20SQL.png",
     credential:
       "https://github.com/evehasnaa/my-certification-/blob/main/Associate%20Data%20Analyst%20in%20SQL.png",
   },
