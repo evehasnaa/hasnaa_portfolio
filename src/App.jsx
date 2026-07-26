@@ -131,7 +131,7 @@ function Section({ id, eyebrow, title, children }) {
 function Chip({ children }) {
   return (
     <span className="px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
-      style={{ background: "#FFFFFF", border: "1.5px solid #CBD5E1", color: "#475569" }}>
+      style={{ background: "transparent", border: "1.5px solid #334155", color: "#CBD5E1" }}>
       {children}
     </span>
   );
@@ -185,10 +185,10 @@ function ContactCard({ icon, label, value, action, href }) {
       onMouseMove={tilt}
       onMouseLeave={() => (ref.current.style.transform = "")}
       className="relative text-left rounded-2xl p-5 w-full transition-transform duration-150 lift-card"
-      style={{ background: "#FFFFFF", border: "1.5px solid #CBD5E1" }}>
+      style={{ background: "transparent", border: "1.5px solid #334155" }}>
       <div className="text-2xl mb-2">{icon}</div>
-      <div className="font-mono text-xs tracking-widest uppercase" style={{ color: "#2563EB" }}>{label}</div>
-      <div className="font-semibold mt-1 break-all" style={{ color: "#0F172A" }}>{value}</div>
+      <div className="font-mono text-xs tracking-widest uppercase" style={{ color: "#60A5FA" }}>{label}</div>
+      <div className="font-semibold mt-1 break-all" style={{ color: "#F8FAFC" }}>{value}</div>
       <div className="mt-3 text-xs font-mono" style={{ color: "#3B82F6" }}>
         {action === "copy" ? "tap to copy ⧉" : "tap to open ↗"}
       </div>
@@ -468,15 +468,15 @@ export default function Portfolio() {
       {/* ── EDUCATION ── */}
       <Section id="education" eyebrow="05 · learning" title="Education">
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="rounded-2xl p-5 lift-card" style={{ background: "#FFFFFF", border: "1.5px solid #CBD5E1" }}>
+          <div className="rounded-2xl p-5 lift-card" style={{ background: "transparent", border: "1.5px solid #334155" }}>
             <div className="font-mono text-xs mb-2" style={{ color: "#F59E0B" }}>DEGREE</div>
-            <p className="font-bold" style={{ color: "#0F172A" }}>B.Sc. Computer Science & Pure Mathematics</p>
-            <p style={{ color: "#475569" }}>Al-Azhar University · 2022 – 2027</p>
+            <p className="font-bold" style={{ color: "#F8FAFC" }}>B.Sc. Computer Science & Pure Mathematics</p>
+            <p style={{ color: "#94A3B8" }}>Al-Azhar University · 2022 – 2027</p>
           </div>
-          <div className="rounded-2xl p-5 lift-card" style={{ background: "#FFFFFF", border: "1.5px solid #CBD5E1" }}>
+          <div className="rounded-2xl p-5 lift-card" style={{ background: "transparent", border: "1.5px solid #334155" }}>
             <div className="font-mono text-xs mb-2" style={{ color: "#F59E0B" }}>PROGRAM</div>
-            <p className="font-bold" style={{ color: "#0F172A" }}>Applied Data Science Lab</p>
-            <p style={{ color: "#475569" }}>WorldQuant University · 2026 – Present</p>
+            <p className="font-bold" style={{ color: "#F8FAFC" }}>Applied Data Science Lab</p>
+            <p style={{ color: "#94A3B8" }}>WorldQuant University · 2026 – Present</p>
           </div>
         </div>
       </Section>
