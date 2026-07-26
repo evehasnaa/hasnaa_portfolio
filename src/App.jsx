@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Certifications from "./components/Certifications";
+import AnimatedBackground from "./components/AnimatedBackground";
 import hasnaaPhoto from "./img/hasnaa .jpeg";
 import marketingImg from "./img/markiting-1_page-0001.jpg";
 import ecommerceImg from "./img/ecomerace.png";
@@ -202,36 +203,34 @@ function ContactCard({ icon, label, value, action, href }) {
   );
 }
 
-/* ───────────────────────── Project card (subtle mouse parallax) ───────────────────────── */
+/* ───────────────────────── Project card (horizontal) ───────────────────────── */
 function ProjectCard({ p }) {
-  const ref = useRef(null);
-
-  const tilt = (e) => {
-    const r = ref.current.getBoundingClientRect();
-    const rx = ((e.clientY - r.top) / r.height - 0.5) * -4;
-    const ry = ((e.clientX - r.left) / r.width - 0.5) * 4;
-    ref.current.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
-  };
-
   return (
-    <a ref={ref} href={p.link} target="_blank" rel="noreferrer"
-      onMouseMove={tilt}
-      onMouseLeave={() => (ref.current.style.transform = "")}
-      className="proj-card block rounded-2xl overflow-hidden"
+    <a href={p.link} target="_blank" rel="noreferrer"
+      className="proj-card flex flex-col md:flex-row rounded-2xl overflow-hidden"
       style={{ background: "#FFFFFF", border: "1.5px solid #CBD5E1" }}>
-      {/* 🖼️ image slot */}
-      <div className="h-44 flex items-center justify-center font-mono text-sm"
-        style={{ background: "repeating-linear-gradient(45deg,#F1F5F9,#F1F5F9 12px,#E2E8F0 12px,#E2E8F0 24px)",
-                 color: "#475569", borderBottom: "1.5px solid #CBD5E1" }}>
+      {/* 🖼️ image panel — left 40% */}
+      <div className="proj-img relative h-52 md:h-auto md:w-[40%] shrink-0 overflow-hidden flex items-center justify-center font-mono text-sm"
+        style={{ background: "#F1F5F9", color: "#475569" }}>
         {p.img
-          ? <img src={p.img} alt={p.title} className="w-full h-full object-cover" />
+          ? <img src={p.img} alt={p.title} className="absolute inset-0 w-full h-full object-cover" />
           : <>⬆ drop dashboard screenshot here</>}
       </div>
-      <div className="p-5">
-        <div className="font-mono text-xs mb-1" style={{ color: "#F59E0B" }}>{p.tag}</div>
-        <h3 className="text-lg font-bold" style={{ color: "#2563EB" }}>{p.title} ↗</h3>
-        <div className="font-mono text-xs mt-1 mb-2" style={{ color: "#475569" }}>{p.tools}</div>
-        <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>{p.desc}</p>
+      {/* content — right 60% */}
+      <div className="p-6 md:w-[60%]">
+        <div className="font-mono text-xs uppercase tracking-[0.2em] mb-2" style={{ color: "#F59E0B" }}>{p.tag}</div>
+        <h3 className="text-xl md:text-2xl" style={{ color: "#2563EB", fontWeight: 700 }}>
+          {p.title} <span className="proj-arrow">↗</span>
+        </h3>
+        <div className="flex flex-wrap gap-2 mt-3 mb-3">
+          {p.tools.split("·").map((t) => (
+            <span key={t} className="font-mono text-xs px-2.5 py-1 rounded-full"
+              style={{ background: "#F1F5F9", border: "1px solid #CBD5E1", color: "#475569" }}>
+              {t.trim()}
+            </span>
+          ))}
+        </div>
+        <p className="text-sm" style={{ color: "#475569", lineHeight: 1.7 }}>{p.desc}</p>
       </div>
     </a>
   );
@@ -296,8 +295,14 @@ export default function Portfolio() {
         @keyframes heroIn { from { opacity: 0; transform: translateY(26px);} to { opacity: 1;} }
         .marquee { animation: slide 18s linear infinite; }
         @keyframes slide { from { transform: translateX(0);} to { transform: translateX(-50%);} }
-        .proj-card { transition: transform .25s cubic-bezier(.2,.9,.3,1), box-shadow .25s ease; will-change: transform; box-shadow: 0 4px 14px rgba(15,23,42,.06); }
-        .proj-card:hover { box-shadow: 0 10px 30px rgba(15,23,42,.08); }
+        .proj-card { position: relative; transition: all .35s cubic-bezier(.25,.46,.45,.94); will-change: transform; box-shadow: 0 4px 14px rgba(15,23,42,.06); }
+        .proj-card:hover { transform: translateY(-8px); box-shadow: 0 18px 44px rgba(15,23,42,.14); }
+        .proj-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: #f59e0b; opacity: 0; transition: opacity .35s cubic-bezier(.25,.46,.45,.94); z-index: 2; }
+        .proj-card:hover::before { opacity: 1; }
+        .proj-card .proj-img { transition: transform .35s cubic-bezier(.25,.46,.45,.94); will-change: transform; }
+        .proj-card:hover .proj-img { transform: scale(1.03); }
+        .proj-card .proj-arrow { display: inline-block; transition: transform .35s cubic-bezier(.25,.46,.45,.94); }
+        .proj-card:hover .proj-arrow { transform: translateX(6px); }
         .lift-card { transition: transform .3s ease, box-shadow .3s ease; box-shadow: 0 4px 14px rgba(15,23,42,.06); }
         .lift-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(15,23,42,.08); }
         .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.9,.3,1); }
@@ -321,6 +326,9 @@ export default function Portfolio() {
       `}</style>
 
       {!entered && <Splash onDone={() => setEntered(true)} />}
+
+      {/* ── 3D ANIMATED BACKGROUND ── */}
+      <AnimatedBackground />
 
       {/* ── ANIMATED BACKGROUND ── */}
       <div className="bg-anim" aria-hidden="true">
@@ -447,7 +455,7 @@ export default function Portfolio() {
               Projects
             </h2>
           </Reveal>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="flex flex-col" style={{ gap: "2rem" }}>
             {PROJECTS.map((p, i) => (
               <Reveal key={i} delay={i * 110}>
                 <ProjectCard p={p} />

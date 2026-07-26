@@ -3,7 +3,7 @@ import datacampSqlImg from "../img/Associate Data Analyst in SQL.png";
 export const CERTIFICATES = [
   {
     id: 1,
-    title: "Data Analytics Summer Internship",
+    title: "Python Summer Internship",
     issuer: "ITI — Information Technology Institute",
     category: "Data Analytics",
     date: "2025",
