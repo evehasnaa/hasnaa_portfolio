@@ -116,7 +116,7 @@ function Reveal({ children, delay = 0, className = "" }) {
 
 function Section({ id, eyebrow, title, children }) {
   return (
-    <section id={id} className="max-w-5xl mx-auto px-6 py-16">
+    <section id={id} className="max-w-7xl mx-auto px-6 py-16">
       <Reveal>
         <Eyebrow>{eyebrow}</Eyebrow>
         <h2 className="text-3xl md:text-4xl font-extrabold mb-8" style={{ fontFamily: "'Syne',sans-serif", color: "#F8FAFC" }}>
@@ -411,7 +411,7 @@ export default function Portfolio() {
 
       {/* ── HERO ── */}
       <header className="relative overflow-hidden">
-        <div className={`max-w-5xl mx-auto px-6 pt-24 pb-16 flex flex-col md:flex-row items-center gap-10 ${entered ? "hero-in" : ""}`}>
+        <div className={`max-w-7xl mx-auto px-6 pt-24 pb-16 flex flex-col md:flex-row items-center gap-10 ${entered ? "hero-in" : ""}`}>
           <div className="flex-1">
           {/* signature tag */}
           <div className="font-mono text-sm mb-6"
@@ -477,7 +477,7 @@ export default function Portfolio() {
       </header>
 
       {/* ── ABOUT + SKILLS (side by side) ── */}
-      <section className="max-w-5xl mx-auto px-6 py-16">
+      <section className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-2 gap-10 items-stretch">
           <div id="about" className="flex flex-col">
             <Reveal>
@@ -570,7 +570,7 @@ export default function Portfolio() {
 
       {/* ── PROJECTS ── */}
       <div>
-        <section id="projects" className="max-w-5xl mx-auto px-6 py-16">
+        <section id="projects" className="max-w-7xl mx-auto px-6 py-16">
           <Reveal>
             <div className="font-mono text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#F59E0B" }}>
               04 · shipped
@@ -611,7 +611,7 @@ export default function Portfolio() {
 
       {/* ── CONTACT ── */}
       <div>
-        <section id="contact" className="max-w-5xl mx-auto px-6 py-16">
+        <section id="contact" className="max-w-7xl mx-auto px-6 py-16">
           <div className="font-mono text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#F59E0B" }}>
             06 · ping me
           </div>
@@ -633,7 +633,7 @@ export default function Portfolio() {
 
       {/* ── FOOTER ── */}
       <div>
-        <footer className="max-w-5xl mx-auto px-6 py-6 text-center font-mono text-xs"
+        <footer className="max-w-7xl mx-auto px-6 py-6 text-center font-mono text-xs"
           style={{ borderTop: "1px solid #334155", color: "#94A3B8" }}>
           © 2026 Hasnaa Ahmed — built with ☕ and way too many SELECT statements.
         </footer>
