@@ -271,17 +271,19 @@ function ProjectCard({ p }) {
 
 /* ───────────────────────── Data ───────────────────────── */
 const SKILL_ICONS = {
-  "BI & Visualization": "📊",
-  "SQL & Databases": "🗄️",
-  "Python & Analytics": "🐍",
-  "Tools": "🧰",
+  "SQL": "🗄️",
+  "POWER BI": "📊",
+  "PYTHON": "🐍",
+  "EXCEL": "📈",
+  "Figma": "🎨",
 };
 
 const SKILLS = {
-  "BI & Visualization": ["Power BI", "DAX", "Power Query", "Data Modeling", "Dashboard Development", "KPI Reporting"],
-  "SQL & Databases": ["Advanced SQL (CTEs, Window Functions)", "SQL Server", "MySQL", "PostgreSQL"],
-  "Python & Analytics": ["Pandas", "NumPy", "Matplotlib", "Web Scraping (Selenium, Playwright)", "EDA", "Customer Segmentation", "Jupyter"],
-  "Tools": ["Excel (Power Pivot, Pivot Tables)", "Google Sheets", "Git & GitHub"],
+  "SQL": ["Advanced Analytics", "Query Optimization"],
+  "POWER BI": ["DAX", "Data Modeling"],
+  "PYTHON": ["Data Wrangling", "Exploratory Analysis"],
+  "EXCEL": ["Power Query", "Pivot Tables"],
+  "Figma": ["Dashboard Design", "Prototyping"],
 };
 
 const EXPERIENCE = [
@@ -505,21 +507,65 @@ export default function Portfolio() {
 
       {/* ── ABOUT + SKILLS (side by side) ── */}
       <section className="max-w-5xl mx-auto px-6 py-16">
-        <div className="max-w-2xl">
-          <div id="about">
+        <div className="grid md:grid-cols-2 gap-10 items-stretch">
+          <div id="about" className="flex flex-col">
             <Reveal>
               <Eyebrow>01 · whoami</Eyebrow>
               <h2 className="text-3xl md:text-4xl font-extrabold mb-8" style={{ fontFamily: "'Syne',sans-serif", color: "#F8FAFC" }}>
                 About
               </h2>
             </Reveal>
-            <Reveal delay={120}>
-              <p className="text-lg leading-relaxed" style={{ color: "#CBD5E1" }}>
-                Data Analyst focused on <b>e-commerce, sales, and marketing</b> domains — experienced in
-                end-to-end analytics from <b>data modeling and ETL</b> to <b>dashboards and stakeholder
-                reporting</b>. B.Sc. student in Computer Science & Pure Mathematics at Al-Azhar University,
-                DEPI Data Analytics graduate, and currently in WorldQuant University's Applied Data Science Lab.
-              </p>
+            <Reveal delay={120} className="flex-1">
+              <div className="rounded-xl px-5 py-4 mb-4 font-mono text-sm"
+                style={{ background: "#111F3D",
+                         border: "1.5px solid #334155",
+                         color: "#CBD5E1", lineHeight: 1.75 }}>
+                <span style={{ color: "#F59E0B" }}>{">_"}</span>
+                <span className="ml-2">
+                  I build end-to-end analytics pipelines — from raw data
+                  ingestion and SQL modeling to interactive Power BI
+                  dashboards with DAX time-intelligence measures that
+                  support strategic decisions.
+                </span>
+              </div>
+              <div className="rounded-xl px-5 py-4 font-mono text-sm"
+                style={{ background: "#111F3D",
+                         border: "1.5px solid #334155",
+                         color: "#CBD5E1", lineHeight: 1.75 }}>
+                <span style={{ color: "#60A5FA" }}>/**</span>
+                <span className="ml-2">
+                  Focus: translating raw data into KPI-driven insights
+                  using Python, SQL Server, Power Query, and DAX —
+                  delivering clear dashboards for non-technical
+                  stakeholders.
+                </span>
+                <span style={{ color: "#60A5FA" }}> */</span>
+              </div>
+            </Reveal>
+          </div>
+
+          <div id="skills" className="flex flex-col">
+            <Reveal>
+              <Eyebrow>02 · toolbox</Eyebrow>
+              <h2 className="text-3xl md:text-4xl font-extrabold mb-8" style={{ fontFamily: "'Syne',sans-serif", color: "#F8FAFC" }}>
+                Skills
+              </h2>
+            </Reveal>
+            <Reveal delay={120} className="flex-1">
+              <div className="rounded-3xl p-8 h-full"
+                style={{ background: "#111F3D", border: "1.5px solid #64748B",
+                         boxShadow: "0 12px 40px rgba(100,116,139,.35), 0 4px 14px rgba(15,23,42,.4)" }}>
+                <div className="grid grid-cols-1 gap-6">
+                  {Object.entries(SKILLS).map(([cat, items]) => (
+                    <div key={cat}>
+                      <div className="font-mono text-sm font-semibold mb-3" style={{ color: "#60A5FA" }}>
+                        {SKILL_ICONS[cat]} {cat}
+                      </div>
+                      <div className="flex flex-wrap gap-2">{items.map((s) => <Chip key={s}>{s}</Chip>)}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </Reveal>
           </div>
         </div>
