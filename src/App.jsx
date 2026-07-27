@@ -441,35 +441,6 @@ export default function Portfolio() {
             </span>
           </h1>
 
-          {/* terminal block 1 */}
-          <div className="rounded-xl px-5 py-4 mb-4 font-mono text-sm"
-            style={{ background: "#111F3D",
-                     border: "1.5px solid #334155",
-                     color: "#CBD5E1", lineHeight: 1.75 }}>
-            <span style={{ color: "#F59E0B" }}>{">_"}</span>
-            <span className="ml-2">
-              I build end-to-end analytics pipelines — from raw data
-              ingestion and SQL modeling to interactive Power BI
-              dashboards with DAX time-intelligence measures that
-              support strategic decisions.
-            </span>
-          </div>
-
-          {/* terminal block 2 */}
-          <div className="rounded-xl px-5 py-4 mb-8 font-mono text-sm"
-            style={{ background: "#111F3D",
-                     border: "1.5px solid #334155",
-                     color: "#CBD5E1", lineHeight: 1.75 }}>
-            <span style={{ color: "#60A5FA" }}>/**</span>
-            <span className="ml-2">
-              Focus: translating raw data into KPI-driven insights
-              using Python, SQL Server, Power Query, and DAX —
-              delivering clear dashboards for non-technical
-              stakeholders.
-            </span>
-            <span style={{ color: "#60A5FA" }}> */</span>
-          </div>
-
           {/* CTA buttons */}
           <div className="flex flex-wrap gap-3">
             <a href="#projects" className="btn-primary px-6 py-3 rounded-full font-bold transition-all hover:scale-105"
