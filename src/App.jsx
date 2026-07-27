@@ -3,6 +3,8 @@ import Certifications from "./components/Certifications";
 import hasnaaPhoto from "./img/hasnaa .jpeg";
 import marketingImg from "./img/markiting-1_page-0001.jpg";
 import ecommerceImg from "./img/ecomerace.png";
+import healthcareImg from "./img/healthcare analytics_page-0001.jpg";
+import linkedinImg from "./img/linkedin dashboard_page-0001.jpg";
 
 /* ─── Design system ───
    bg      #F8FAFC / #F1F5F9 / #E2E8F0     card #FFFFFF     border #CBD5E1
@@ -306,7 +308,7 @@ const PROJECTS = [
     link: "https://github.com/evehasnaa/healthcare-analysis-end-to-end-project-",
     githubLink: "https://github.com/evehasnaa/healthcare-analysis-end-to-end-project-",
     powerbiLink: null,
-    img: null,
+    img: healthcareImg,
     desc: "1M synthetic encounters generated, loaded through Staging → Bronze → Silver → Gold on SQL Server, and served via a Power BI semantic model — a full analytics-engineering pipeline.",
   },
   {
@@ -326,7 +328,7 @@ const PROJECTS = [
     link: "https://github.com/evehasnaa/LINKEDIN-JOP-DATA-ANALYSIS-PROJECT-",
     githubLink: "https://github.com/evehasnaa/LINKEDIN-JOP-DATA-ANALYSIS-PROJECT-",
     powerbiLink: "https://app.powerbi.com/groups/me/reports/3c2f9417-c369-43aa-b8d7-6871086ddb93?ctid=2bb6e5bc-c109-47fb-9433-c1c6f4fa33ff&pbi_source=linkShare",
-    img: null,
+    img: linkedinImg,
     desc: "327 job postings from 193 companies cleaned with Pandas & Power Query; dashboard with custom DAX measures surfacing a $156K average-salary benchmark, top hiring regions, and 5 job families.",
   },
   {

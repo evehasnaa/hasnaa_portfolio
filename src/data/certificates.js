@@ -1,3 +1,5 @@
+import datacampImg from "../img/Associate Data Analyst in SQL_page-0001.jpg";
+
 export const CERTIFICATES = [
   {
     id: 1,
@@ -17,8 +19,7 @@ export const CERTIFICATES = [
     issuer: "DataCamp",
     category: "SQL",
     date: "2025",
-    image:
-      "https://raw.githubusercontent.com/evehasnaa/my-certification-/main/Associate%20Data%20Analyst%20in%20SQL.png",
+    image: datacampImg,
     credential:
       "https://github.com/evehasnaa/my-certification-/blob/main/Associate%20Data%20Analyst%20in%20SQL.png",
   },
