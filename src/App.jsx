@@ -205,23 +205,55 @@ function ContactCard({ icon, label, value, action, href }) {
 /* ───────────────────────── Project card (horizontal) ───────────────────────── */
 function ProjectCard({ p }) {
   return (
-    <a href={p.link} target="_blank" rel="noreferrer"
-      className="proj-card flex flex-col md:flex-row rounded-2xl overflow-hidden"
-      style={{ background: "#111F3D", border: "1.5px solid #334155" }}>
-      {/* 🖼️ image panel — left 40% */}
-      <div className="proj-img relative h-52 md:h-auto md:w-[40%] shrink-0 overflow-hidden flex items-center justify-center font-mono text-sm"
-        style={{ background: "#0F1E3A", color: "#94A3B8" }}>
-        {p.img
-          ? <img src={p.img} alt={p.title} className="absolute inset-0 w-full h-full object-cover" />
-          : <>⬆ drop dashboard screenshot here</>}
+    <div
+      className="proj-card rounded-2xl overflow-hidden flex flex-col"
+      style={{ background: "#111F3D", border: "1.5px solid #1E3A5F" }}
+    >
+      <div
+        className="proj-img relative w-full overflow-hidden flex items-center justify-center font-mono text-sm"
+        style={{ aspectRatio: "16/9", background: "#0F1E3A", color: "#94A3B8" }}
+      >
+        {p.img ? (
+          <img
+            src={p.img}
+            alt={p.title}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : (
+          <span style={{ color: "#334155", fontSize: "13px" }}>
+            ⬆ drop dashboard screenshot here
+          </span>
+        )}
+        <div className="absolute top-3 right-3 flex gap-2" style={{ zIndex: 3 }}>
+          {p.githubLink && (
+            <a href={p.githubLink} target="_blank" rel="noreferrer"
+              onClick={(e) => e.stopPropagation()} title="GitHub"
+              style={{ background: "rgba(10,22,40,0.85)", border: "1px solid #334155",
+                borderRadius: "8px", padding: "6px 10px", color: "#CBD5E1",
+                fontSize: "12px", textDecoration: "none", backdropFilter: "blur(4px)",
+                fontFamily: "monospace" }}>
+              GH ↗
+            </a>
+          )}
+          {p.powerbiLink && (
+            <a href={p.powerbiLink} target="_blank" rel="noreferrer"
+              onClick={(e) => e.stopPropagation()} title="Power BI Report"
+              style={{ background: "rgba(37,99,235,0.85)", border: "1px solid #2563EB",
+                borderRadius: "8px", padding: "6px 10px", color: "#FFFFFF",
+                fontSize: "12px", textDecoration: "none", backdropFilter: "blur(4px)",
+                fontFamily: "monospace" }}>
+              BI ↗
+            </a>
+          )}
+        </div>
       </div>
-      {/* content — right 60% */}
-      <div className="p-6 md:w-[60%]">
-        <div className="font-mono text-xs uppercase tracking-[0.2em] mb-2" style={{ color: "#F59E0B" }}>{p.tag}</div>
-        <h3 className="text-xl md:text-2xl" style={{ color: "#60A5FA", fontWeight: 700 }}>
-          {p.title} <span className="proj-arrow">↗</span>
+      <div className="p-5 flex flex-col flex-1">
+        <div className="font-mono text-xs uppercase tracking-[0.2em] mb-2"
+          style={{ color: "#F59E0B" }}>{p.tag}</div>
+        <h3 className="text-lg font-bold mb-3" style={{ color: "#60A5FA", lineHeight: 1.3 }}>
+          {p.title} <span className="proj-arrow" style={{ color: "#F59E0B" }}>↗</span>
         </h3>
-        <div className="flex flex-wrap gap-2 mt-3 mb-3">
+        <div className="flex flex-wrap gap-2 mb-3">
           {p.tools.split("·").map((t) => (
             <span key={t} className="font-mono text-xs px-2.5 py-1 rounded-full"
               style={{ background: "#0B1730", border: "1px solid #334155", color: "#CBD5E1" }}>
@@ -229,9 +261,11 @@ function ProjectCard({ p }) {
             </span>
           ))}
         </div>
-        <p className="text-sm" style={{ color: "#CBD5E1", lineHeight: 1.7 }}>{p.desc}</p>
+        <p className="text-sm mt-auto" style={{ color: "#94A3B8", lineHeight: 1.7 }}>
+          {p.desc}
+        </p>
       </div>
-    </a>
+    </div>
   );
 }
 
@@ -263,21 +297,46 @@ const EXPERIENCE = [
 ];
 
 const PROJECTS = [
-  { title: "E-Commerce Customer Segmentation", tag: "Customer & Sales Analytics",
-    tools: "Python · SQL Server · Power BI · DAX", link: "https://github.com/evehasnaa/bootcamp-data-analysis/blob/main/image%20dashboard/Screenshot%20(236).png",
-    img: ecommerceImg,
-    desc: "Segmentation & behavioral analysis on SQL Server transaction data — CLV, AOV, Retention, MoM & YoY growth — served through interactive Power BI dashboards for marketing and sales decisions." },
-  { title: "LinkedIn Job Market Analysis", tag: "Labor Market & Recruitment Analytics",
-    tools: "Python · Power BI · DAX · Power Query", link: "https://github.com/evehasnaa/LINKEDIN-JOP-DATA-ANALYSIS-PROJECT-",
-    desc: "327 job postings from 193 companies cleaned with Pandas & Power Query; dashboard with custom DAX measures surfacing a $156K average-salary benchmark, top hiring regions, and 5 job families." },
-  { title: "Multi-Platform Marketing Analytics", tag: "Marketing Performance Analytics",
+  {
+    title: "Healthcare Analytics — End to End",
+    tag: "Analytics Engineering · Medallion",
+    tools: "Python · SQL Server · Power BI · TMDL",
+    link: "https://github.com/evehasnaa/healthcare-analysis-end-to-end-project-",
+    githubLink: "https://github.com/evehasnaa/healthcare-analysis-end-to-end-project-",
+    powerbiLink: null,
+    img: null,
+    desc: "1M synthetic encounters generated, loaded through Staging → Bronze → Silver → Gold on SQL Server, and served via a Power BI semantic model — a full analytics-engineering pipeline.",
+  },
+  {
+    title: "Multi-Platform Marketing Analytics",
+    tag: "Marketing Performance Analytics",
     tools: "Power BI · DAX · Power Query",
     link: "https://app.powerbi.com/view?r=eyJrIjoiMTAxYzZkZTgtYzEzNS00ZTVlLTlhNTMtYmU2NjhlYmU3MTUwIiwidCI6IjJiYjZlNWJjLWMxMDktNDdmYi05NDMzLWMxYzZmNGZhMzNmZiIsImMiOjl9",
+    githubLink: null,
+    powerbiLink: "https://app.powerbi.com/view?r=eyJrIjoiMTAxYzZkZTgtYzEzNS00ZTVlLTlhNTMtYmU2NjhlYmU3MTUwIiwidCI6IjJiYjZlNWJjLWMxMDktNDdmYi05NDMzLWMxYzZmNGZhMzNmZiIsImMiOjl9",
     img: marketingImg,
-    desc: "4-page report analyzing 20 campaigns across Facebook, Instagram & TikTok — 10+ DAX measures tracking ROI, CPC, CPA, CTR and conversion, with dynamic metric-switching and synced slicers." },
-  { title: "Healthcare Analytics — End to End", tag: "Analytics Engineering · Medallion",
-    tools: "Python · SQL Server · Power BI · TMDL", link: "https://github.com/evehasnaa/healthcare-analysis-end-to-end-project-",
-    desc: "1M synthetic encounters generated, loaded through Staging → Bronze → Silver → Gold on SQL Server, and served via a Power BI semantic model — a full analytics-engineering pipeline." },
+    desc: "4-page report analyzing 20 campaigns across Facebook, Instagram & TikTok — 10+ DAX measures tracking ROI, CPC, CPA, CTR and conversion, with dynamic metric-switching and synced slicers.",
+  },
+  {
+    title: "LinkedIn Job Market Analysis",
+    tag: "Labor Market & Recruitment Analytics",
+    tools: "Python · Power BI · DAX · Power Query",
+    link: "https://github.com/evehasnaa/LINKEDIN-JOP-DATA-ANALYSIS-PROJECT-",
+    githubLink: "https://github.com/evehasnaa/LINKEDIN-JOP-DATA-ANALYSIS-PROJECT-",
+    powerbiLink: "https://app.powerbi.com/groups/me/reports/3c2f9417-c369-43aa-b8d7-6871086ddb93?ctid=2bb6e5bc-c109-47fb-9433-c1c6f4fa33ff&pbi_source=linkShare",
+    img: null,
+    desc: "327 job postings from 193 companies cleaned with Pandas & Power Query; dashboard with custom DAX measures surfacing a $156K average-salary benchmark, top hiring regions, and 5 job families.",
+  },
+  {
+    title: "E-Commerce Customer Segmentation",
+    tag: "Customer & Sales Analytics",
+    tools: "Python · SQL Server · Power BI · DAX",
+    link: "https://github.com/evehasnaa/bootcamp-data-analysis",
+    githubLink: "https://github.com/evehasnaa/bootcamp-data-analysis",
+    powerbiLink: null,
+    img: ecommerceImg,
+    desc: "Segmentation & behavioral analysis on SQL Server transaction data — CLV, AOV, Retention, MoM & YoY growth — served through interactive Power BI dashboards for marketing and sales decisions.",
+  },
 ];
 
 /* ───────────────────────── App ───────────────────────── */
@@ -301,14 +360,14 @@ export default function Portfolio() {
         @keyframes heroIn { from { opacity: 0; transform: translateY(26px);} to { opacity: 1;} }
         .marquee { animation: slide 18s linear infinite; }
         @keyframes slide { from { transform: translateX(0);} to { transform: translateX(-50%);} }
-        .proj-card { position: relative; transition: all .35s cubic-bezier(.25,.46,.45,.94); will-change: transform; box-shadow: 0 4px 14px rgba(15,23,42,.06); }
-        .proj-card:hover { transform: translateY(-8px); box-shadow: 0 18px 44px rgba(15,23,42,.14); }
-        .proj-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: #f59e0b; opacity: 0; transition: opacity .35s cubic-bezier(.25,.46,.45,.94); z-index: 2; }
+        .proj-card { position: relative; transition: transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94), border-color 0.3s ease; will-change: transform; }
+        .proj-card:hover { transform: translateY(-6px); border-color: #2563EB !important; }
+        .proj-card::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 3px; background: #F59E0B; opacity: 0; transition: opacity .3s ease; z-index: 2; border-radius: 12px 12px 0 0; }
         .proj-card:hover::before { opacity: 1; }
-        .proj-card .proj-img { transition: transform .35s cubic-bezier(.25,.46,.45,.94); will-change: transform; }
-        .proj-card:hover .proj-img { transform: scale(1.03); }
-        .proj-card .proj-arrow { display: inline-block; transition: transform .35s cubic-bezier(.25,.46,.45,.94); }
-        .proj-card:hover .proj-arrow { transform: translateX(6px); }
+        .proj-card .proj-img { transition: transform .3s cubic-bezier(.25,.46,.45,.94); }
+        .proj-card:hover .proj-img { transform: scale(1.04); }
+        .proj-card .proj-arrow { display: inline-block; transition: transform .3s cubic-bezier(.25,.46,.45,.94); }
+        .proj-card:hover .proj-arrow { transform: translate(4px,-4px); }
         .lift-card { transition: transform .3s ease, box-shadow .3s ease; box-shadow: 0 4px 14px rgba(15,23,42,.06); }
         .lift-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(15,23,42,.08); }
         .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.9,.3,1); }
@@ -329,6 +388,11 @@ export default function Portfolio() {
           100% { transform: translate(-70px,60px) scale(.95); }
         }
         @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation: none !important; transition: none !important; } .reveal { opacity: 1; transform: none; } }
+        .hasnaa-exe { display: inline-block;
+          animation: blink-cursor 1.1s step-end infinite; }
+        @keyframes blink-cursor {
+          0%,100% { opacity: 1; }
+          50%      { opacity: 0; } }
       `}</style>
 
       {!entered && <Splash onDone={() => setEntered(true)} />}
@@ -347,26 +411,65 @@ export default function Portfolio() {
       <header className="relative overflow-hidden">
         <div className={`max-w-5xl mx-auto px-6 pt-24 pb-16 flex flex-col md:flex-row items-center gap-10 ${entered ? "hero-in" : ""}`}>
           <div className="flex-1">
-          <div className="font-mono text-sm mb-4" style={{ color: "#F59E0B" }}>
-            {"</>"} hello_world — I'm
+          {/* signature tag */}
+          <div className="font-mono text-sm mb-6"
+            style={{ color: "#F59E0B" }}>
+            {">"} hasnaa.exe<span className="hasnaa-exe">_</span>
           </div>
-          <h1 className="font-extrabold leading-[0.95] tracking-tight"
-            style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(3rem,9vw,6.5rem)" }}>
-            <span style={{ color: "#F8FAFC" }}>HASNAA</span>{" "}
+
+          {/* main headline */}
+          <h1 className="font-extrabold leading-[0.95] tracking-tight mb-6"
+            style={{ fontFamily: "'Syne',sans-serif",
+                     fontSize: "clamp(2.8rem,7vw,5.5rem)" }}>
+            <span style={{ color: "#F8FAFC" }}>Hi, I am </span>
             <span style={{
               background: "linear-gradient(90deg,#2563EB 0%,#3B82F6 100%)",
-              WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
-              AHMED
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              color: "transparent" }}>
+              Hasnaa Ahmed,
+            </span>
+            <br />
+            <span style={{ color: "#F8FAFC" }}>
+              focusing on Turning Data
+            </span>
+            <br />
+            <span style={{ color: "#F59E0B" }}>
+              into Business Decisions.
             </span>
           </h1>
-          <p className="mt-5 text-lg md:text-2xl font-semibold" style={{ color: "#F8FAFC" }}>
-            Data Analyst · Business Intelligence
-          </p>
-          <p className="mt-3 max-w-xl" style={{ color: "#CBD5E1" }}>
-            Turning raw data into business decisions — e-commerce, sales & marketing analytics
-            with Power BI, SQL, and Python.
-          </p>
-          <div className="flex flex-wrap gap-3 mt-8">
+
+          {/* terminal block 1 */}
+          <div className="rounded-xl px-5 py-4 mb-4 font-mono text-sm"
+            style={{ background: "#111F3D",
+                     border: "1.5px solid #334155",
+                     color: "#CBD5E1", lineHeight: 1.75 }}>
+            <span style={{ color: "#F59E0B" }}>{">_"}</span>
+            <span className="ml-2">
+              I build end-to-end analytics pipelines — from raw data
+              ingestion and SQL modeling to interactive Power BI
+              dashboards with DAX time-intelligence measures that
+              support strategic decisions.
+            </span>
+          </div>
+
+          {/* terminal block 2 */}
+          <div className="rounded-xl px-5 py-4 mb-8 font-mono text-sm"
+            style={{ background: "#111F3D",
+                     border: "1.5px solid #334155",
+                     color: "#CBD5E1", lineHeight: 1.75 }}>
+            <span style={{ color: "#60A5FA" }}>/**</span>
+            <span className="ml-2">
+              Focus: translating raw data into KPI-driven insights
+              using Python, SQL Server, Power Query, and DAX —
+              delivering clear dashboards for non-technical
+              stakeholders.
+            </span>
+            <span style={{ color: "#60A5FA" }}> */</span>
+          </div>
+
+          {/* CTA buttons */}
+          <div className="flex flex-wrap gap-3">
             <a href="#projects" className="btn-primary px-6 py-3 rounded-full font-bold transition-all hover:scale-105"
               style={{ color: "#FFFFFF" }}>
               See my work ↓
@@ -402,7 +505,7 @@ export default function Portfolio() {
 
       {/* ── ABOUT + SKILLS (side by side) ── */}
       <section className="max-w-5xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-2 gap-10 items-start">
+        <div className="max-w-2xl">
           <div id="about">
             <Reveal>
               <Eyebrow>01 · whoami</Eyebrow>
@@ -417,31 +520,6 @@ export default function Portfolio() {
                 reporting</b>. B.Sc. student in Computer Science & Pure Mathematics at Al-Azhar University,
                 DEPI Data Analytics graduate, and currently in WorldQuant University's Applied Data Science Lab.
               </p>
-            </Reveal>
-          </div>
-
-          <div id="skills">
-            <Reveal>
-              <Eyebrow>02 · toolbox</Eyebrow>
-              <h2 className="text-3xl md:text-4xl font-extrabold mb-8" style={{ fontFamily: "'Syne',sans-serif", color: "#F8FAFC" }}>
-                Skills
-              </h2>
-            </Reveal>
-            <Reveal delay={120}>
-              <div className="rounded-3xl p-8"
-                style={{ background: "#111F3D", border: "1.5px solid #64748B",
-                         boxShadow: "0 12px 40px rgba(100,116,139,.35), 0 4px 14px rgba(15,23,42,.4)" }}>
-                <div className="grid grid-cols-1 gap-8">
-                  {Object.entries(SKILLS).map(([cat, items]) => (
-                    <div key={cat}>
-                      <div className="font-mono text-sm font-semibold mb-3" style={{ color: "#60A5FA" }}>
-                        {SKILL_ICONS[cat]} {cat}
-                      </div>
-                      <div className="flex flex-wrap gap-2">{items.map((s) => <Chip key={s}>{s}</Chip>)}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </Reveal>
           </div>
         </div>
@@ -481,9 +559,9 @@ export default function Portfolio() {
               Projects
             </h2>
           </Reveal>
-          <div className="flex flex-col" style={{ gap: "2rem" }}>
+          <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: "1.5rem" }}>
             {PROJECTS.map((p, i) => (
-              <Reveal key={i} delay={i * 110}>
+              <Reveal key={i} delay={i * 80}>
                 <ProjectCard p={p} />
               </Reveal>
             ))}
