@@ -413,8 +413,9 @@ export default function Portfolio() {
 
       {/* ── HERO ── */}
       <header className="relative overflow-hidden">
-        <div className={`max-w-7xl mx-auto px-6 pt-24 pb-16 flex flex-col md:flex-row items-center gap-10 ${entered ? "hero-in" : ""}`}>
-          <div className="flex-1">
+        <div className={`flex flex-col md:flex-row md:items-stretch ${entered ? "hero-in" : ""}`}
+          style={{ minHeight: "100vh", padding: 0, maxWidth: "100%", margin: 0 }}>
+          <div className="flex flex-col justify-center w-full md:w-[45%] px-6 pt-24 pb-12 md:py-20 md:pr-12 md:pl-24">
           {/* signature tag */}
           <div className="font-mono text-sm mb-6"
             style={{ color: "#F59E0B" }}>
@@ -422,9 +423,10 @@ export default function Portfolio() {
           </div>
 
           {/* main headline */}
-          <h1 className="font-extrabold leading-[0.95] tracking-tight mb-6"
+          <h1 className="font-extrabold tracking-tight mb-6"
             style={{ fontFamily: "'Syne',sans-serif",
-                     fontSize: "clamp(2.8rem,7vw,5.5rem)" }}>
+                     fontSize: "clamp(2.2rem,4.5vw,4rem)",
+                     lineHeight: "1.05" }}>
             <span style={{ color: "#F8FAFC" }}>Hi, I am </span>
             <span style={{
               background: "linear-gradient(90deg,#2563EB 0%,#3B82F6 100%)",
@@ -461,10 +463,9 @@ export default function Portfolio() {
           </div>
 
           {/* 🖼️ personal photo */}
-          <div className="w-56 h-56 md:w-64 md:h-64 shrink-0 rounded-3xl overflow-hidden flex items-center justify-center"
-            style={{ border: "3px solid #2563EB", background: "#F1F5F9",
-                     boxShadow: "0 10px 30px rgba(15,23,42,.08)" }}>
-            <img src={hasnaaPhoto} alt="Hasnaa Ahmed" className="w-full h-full object-cover" />
+          <div className="shrink-0 w-full md:w-[55%] h-80 md:h-auto"
+            style={{ position: "relative", overflow: "hidden" }}>
+            <img src={hasnaaPhoto} alt="Hasnaa Ahmed" className="absolute inset-0 w-full h-full object-cover object-top" />
           </div>
         </div>
 
