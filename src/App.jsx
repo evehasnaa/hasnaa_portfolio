@@ -487,30 +487,34 @@ export default function Portfolio() {
               </h2>
             </Reveal>
             <Reveal delay={120} className="flex-1">
-              <div className="rounded-xl px-5 py-4 mb-4 font-mono text-sm"
-                style={{ background: "#111F3D",
-                         border: "1.5px solid #334155",
-                         color: "#CBD5E1", lineHeight: 1.75 }}>
-                <span style={{ color: "#F59E0B" }}>{">_"}</span>
-                <span className="ml-2">
-                  I build end-to-end analytics pipelines — from raw data
-                  ingestion and SQL modeling to interactive Power BI
-                  dashboards with DAX time-intelligence measures that
-                  support strategic decisions.
-                </span>
-              </div>
-              <div className="rounded-xl px-5 py-4 font-mono text-sm"
-                style={{ background: "#111F3D",
-                         border: "1.5px solid #334155",
-                         color: "#CBD5E1", lineHeight: 1.75 }}>
-                <span style={{ color: "#60A5FA" }}>/**</span>
-                <span className="ml-2">
-                  Focus: translating raw data into KPI-driven insights
-                  using Python, SQL Server, Power Query, and DAX —
-                  delivering clear dashboards for non-technical
-                  stakeholders.
-                </span>
-                <span style={{ color: "#60A5FA" }}> */</span>
+              <div className="space-y-6">
+                <p className="font-extrabold leading-tight"
+                  style={{ 
+                    fontFamily: "'Syne',sans-serif",
+                    fontSize: "clamp(1.6rem,3vw,2.2rem)",
+                    color: "#F8FAFC" 
+                  }}>
+                  Hi, I am{" "}
+                  <span style={{ color: "#3B82F6" }}>Hasnaa Ahmed</span>
+                  {" "}X0, focusing on Leveraging Data into Business Growth.
+                </p>
+
+                <p className="font-mono text-base leading-relaxed"
+                  style={{ color: "#CBD5E1", fontSize: "1rem" }}>
+                  <span style={{ color: "#F59E0B" }}>&gt;_</span>
+                  {" "}I design ETL workflows, build multi-fact SQL models,
+                  and deliver interactive Power BI dashboards with 
+                  time-intelligence measures that support strategic decisions.
+                </p>
+
+                <p className="font-mono text-base leading-relaxed"
+                  style={{ color: "#CBD5E1", fontSize: "1rem" }}>
+                  <span style={{ color: "#60A5FA" }}>/**</span>
+                  {" "}Focus: translating raw data into KPI-driven insights
+                  using Python, SQL Server, Power Query, and DAX for 
+                  non-technical stakeholders.
+                  {" "}<span style={{ color: "#60A5FA" }}>*/</span>
+                </p>
               </div>
             </Reveal>
           </div>
