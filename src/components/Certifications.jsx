@@ -95,7 +95,7 @@ export default function Certifications() {
 
             {/* CONTENT */}
 
-            <div className="p-6">
+            <div className="p-7">
 
               <span
                 className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-4"
@@ -108,27 +108,31 @@ export default function Certifications() {
               </span>
 
               <h3
-                className="text-xl font-bold mb-2"
+                className="text-2xl font-bold mb-3"
                 style={{
+                  fontFamily: "'Syne',sans-serif",
                   color: "#F8FAFC",
+                  lineHeight: 1.25,
                 }}
               >
                 {cert.title}
               </h3>
 
               <p
-                className="text-sm"
+                className="text-base"
                 style={{
                   color: "#94A3B8",
+                  lineHeight: 1.7,
                 }}
               >
                 <strong>Issued by:</strong> {cert.issuer}
               </p>
 
               <p
-                className="text-sm mt-2"
+                className="text-base mt-2"
                 style={{
                   color: "#94A3B8",
+                  lineHeight: 1.7,
                 }}
               >
                 <strong>Date:</strong> {cert.date}

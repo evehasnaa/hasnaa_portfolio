@@ -118,7 +118,7 @@ function Reveal({ children, delay = 0, className = "" }) {
 
 function Section({ id, eyebrow, title, children }) {
   return (
-    <section id={id} className="max-w-7xl mx-auto px-6 py-16">
+    <section id={id} className="max-w-7xl mx-auto px-6 py-20">
       <Reveal>
         <Eyebrow>{eyebrow}</Eyebrow>
         <h2 className="text-3xl md:text-4xl font-extrabold mb-8" style={{ fontFamily: "'Syne',sans-serif", color: "#F8FAFC" }}>
@@ -132,7 +132,7 @@ function Section({ id, eyebrow, title, children }) {
 
 function Chip({ children }) {
   return (
-    <span className="px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+    <span className="px-3.5 py-2 rounded-full text-base font-medium transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
       style={{ background: "transparent", border: "1.5px solid #334155", color: "#CBD5E1" }}>
       {children}
     </span>
@@ -289,15 +289,15 @@ const SKILLS = {
 };
 
 const EXPERIENCE = [
-  { role: "Data Collection Analyst", org: "SmartCat Company · Remote, KSA", date: "Apr 2026 – Jun 2026",
-    points: ["Engineered Python scripts & automated web scraping to source datasets for AI-powered SaaS platforms.",
-             "Managed the end-to-end data collection lifecycle, delivering structured data for training AI agents."] },
+  { role: "Data Collection Analyst", org: "SmartCat Company · Remote, Saudi Arabia", date: "Apr 2026 – Jun 2026",
+    points: ["Automated end-to-end data collection using Python delivering structured datasets for AI-powered SaaS products.",
+             "Cleaned, validated, and transformed raw data into high-quality datasets optimized for AI model training."] },
   { role: "Python & Data Instructor", org: "GDGC Al-Azhar University · Cairo", date: "Oct 2025 – Present",
-    points: ["Mentored 15+ trainees on Python (OOP), Pandas & NumPy analysis workflows.",
-             "Guided students in SQL, data modeling, and interactive Power BI dashboards with advanced DAX."] },
+    points: ["Mentored 15+ trainees in Python, SQL, and data analysis.",
+             "Delivered hands-on training in data modeling and Power BI dashboard development with DAX."] },
   { role: "Operations Manager", org: "AG Care Insurance · Cairo", date: "Aug 2025 – Feb 2026",
-    points: ["Streamlined medical-insurance pricing workflows with Excel & Google Sheets (advanced formulas, pivots).",
-             "Maintained compliant policy documentation, collaborating cross-functionally for accurate issuance."] },
+    points: ["Managed medical insurance pricing using Excel, ensuring accurate calculations and policy quotations.",
+             "Prepared operational reports and policy documentation using Microsoft Word to support timely policy issuance."] },
 ];
 
 const PROJECTS = [
@@ -374,6 +374,8 @@ export default function Portfolio() {
         .proj-card:hover .proj-arrow { transform: translate(4px,-4px); }
         .lift-card { transition: transform .3s ease, box-shadow .3s ease; box-shadow: 0 4px 14px rgba(15,23,42,.06); }
         .lift-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(15,23,42,.08); }
+        .svc-card { transition: transform .35s cubic-bezier(.25,.46,.45,.94), box-shadow .35s ease; box-shadow: 0 4px 14px rgba(15,23,42,.2); }
+        .svc-card:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 18px 45px rgba(15,23,42,.55); }
         .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.9,.3,1); }
         .reveal-in { opacity: 1; transform: none; }
         .btn-primary { background: #2563EB; }
@@ -435,19 +437,19 @@ export default function Portfolio() {
           style={{ minHeight: "100vh", padding: 0, maxWidth: "100%", margin: 0 }}>
           <div className="flex flex-col justify-center w-full md:w-[45%] px-6 pt-24 pb-12 md:py-20 md:pr-12 md:pl-24">
           {/* main headline */}
-          <h1 className="font-extrabold leading-tight mb-5"
+          <h1 className="font-extrabold leading-tight mb-6"
             style={{
               fontFamily: "'Syne',sans-serif",
-              fontSize: "clamp(1.8rem,3.2vw,3rem)",
-              lineHeight: "1.1"
+              fontSize: "clamp(2.4rem,4.5vw,4rem)",
+              lineHeight: "1.08"
             }}>
             <span style={{ color: "#F59E0B" }}>Hasnaa Ahmed</span>
             <br />
             <span style={{ color: "#F8FAFC" }}>&gt; Data Analytics</span>
           </h1>
 
-          <p className="mt-4 mb-8 text-base leading-relaxed"
-            style={{ color: "#CBD5E1", maxWidth: "38ch" }}>
+          <p className="mt-5 mb-10 text-lg"
+            style={{ color: "#CBD5E1", maxWidth: "40ch", lineHeight: "1.8" }}>
             Transforming raw data into{" "}
             <strong style={{ color: "#F8FAFC" }}>actionable insights</strong>
             . Building bridges between complex datasets and strategic
@@ -455,16 +457,16 @@ export default function Portfolio() {
           </p>
 
           {/* CTA buttons */}
-          <div className="flex flex-wrap gap-3">
-            <a href="#projects" className="btn-primary px-6 py-3 rounded-full font-bold transition-all hover:scale-105"
+          <div className="flex flex-wrap gap-4">
+            <a href="#projects" className="btn-primary px-8 py-4 text-lg rounded-full font-bold transition-all hover:scale-105"
               style={{ color: "#FFFFFF" }}>
               See my work ↓
             </a>
-            <a href="#contact" className="btn-outline px-6 py-3 rounded-full font-bold transition-all hover:scale-105">
+            <a href="#contact" className="btn-outline px-8 py-4 text-lg rounded-full font-bold transition-all hover:scale-105">
               Contact me
             </a>
             <a href="https://drive.google.com/file/d/1mzRL_Ayhu5aZETCfj3oIpQpNrkqe2JyC/view" target="_blank" rel="noreferrer"
-              className="btn-primary px-6 py-3 rounded-full font-bold transition-all hover:scale-105"
+              className="btn-primary px-8 py-4 text-lg rounded-full font-bold transition-all hover:scale-105"
               style={{ color: "#FFFFFF" }}>
               ⬇ Download CV
             </a>
@@ -500,7 +502,7 @@ export default function Portfolio() {
       </header>
 
       {/* ── ABOUT + SKILLS (side by side) ── */}
-      <section className="max-w-7xl mx-auto px-6 py-16">
+      <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="grid md:grid-cols-2 gap-10 items-stretch">
           <div id="about" className="flex flex-col">
             <Reveal>
@@ -510,7 +512,7 @@ export default function Portfolio() {
               </h2>
             </Reveal>
             <Reveal delay={120} className="flex-1">
-              <div className="space-y-6">
+              <div className="space-y-7">
                 <p className="font-extrabold leading-tight"
                   style={{ 
                     fontFamily: "'Syne',sans-serif",
@@ -522,16 +524,16 @@ export default function Portfolio() {
                   {" "}X0, focusing on Leveraging Data into Business Growth.
                 </p>
 
-                <p className="font-mono text-base leading-relaxed"
-                  style={{ color: "#CBD5E1", fontSize: "1rem" }}>
+                <p className="font-mono"
+                  style={{ color: "#CBD5E1", fontSize: "1.125rem", lineHeight: "1.85" }}>
                   <span style={{ color: "#F59E0B" }}>&gt;_</span>
                   {" "}I design ETL workflows, build multi-fact SQL models,
                   and deliver interactive Power BI dashboards with 
                   time-intelligence measures that support strategic decisions.
                 </p>
 
-                <p className="font-mono text-base leading-relaxed"
-                  style={{ color: "#CBD5E1", fontSize: "1rem" }}>
+                <p className="font-mono"
+                  style={{ color: "#CBD5E1", fontSize: "1.125rem", lineHeight: "1.85" }}>
                   <span style={{ color: "#60A5FA" }}>/**</span>
                   {" "}Focus: translating raw data into KPI-driven insights
                   using Python, SQL Server, Power Query, and DAX for 
@@ -553,13 +555,14 @@ export default function Portfolio() {
               <div className="rounded-3xl p-8 h-full"
                 style={{ background: "#111F3D", border: "1.5px solid #64748B",
                          boxShadow: "0 12px 40px rgba(100,116,139,.35), 0 4px 14px rgba(15,23,42,.4)" }}>
-                <div className="grid grid-cols-1 gap-6">
+                <div className="grid grid-cols-1 gap-7">
                   {Object.entries(SKILLS).map(([cat, items]) => (
                     <div key={cat}>
-                      <div className="font-mono text-sm font-semibold mb-3" style={{ color: "#60A5FA" }}>
+                      <div className={`font-mono font-bold mb-3 ${["SQL", "POWER BI", "PYTHON"].includes(cat) ? "text-lg" : "text-sm font-semibold"}`}
+                        style={{ color: "#60A5FA" }}>
                         {SKILL_ICONS[cat]} {cat}
                       </div>
-                      <div className="flex flex-wrap gap-2">{items.map((s) => <Chip key={s}>{s}</Chip>)}</div>
+                      <div className="flex flex-wrap gap-2.5">{items.map((s) => <Chip key={s}>{s}</Chip>)}</div>
                     </div>
                   ))}
                 </div>
@@ -574,15 +577,15 @@ export default function Portfolio() {
         <Section id="experience" eyebrow="03 · timeline" title="Experience">
           <div className="relative pl-6" style={{ borderLeft: "3px solid #334155" }}>
             {EXPERIENCE.map((e, i) => (
-              <div key={i} className="mb-10 relative">
+              <div key={i} className="mb-14 relative">
                 <div className="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full"
                   style={{ background: "#2563EB", border: "3px solid #0A1628" }} />
                 <div className="flex flex-wrap items-baseline gap-x-3 pl-2">
-                  <h3 className="text-xl font-bold" style={{ color: "#F8FAFC" }}>{e.role}</h3>
-                  <span className="font-mono text-xs" style={{ color: "#F59E0B" }}>{e.date}</span>
+                  <h3 className="text-2xl font-bold" style={{ color: "#F8FAFC" }}>{e.role}</h3>
+                  <span className="font-mono text-sm" style={{ color: "#F59E0B" }}>{e.date}</span>
                 </div>
-                <div className="font-semibold mb-2 pl-2" style={{ color: "#60A5FA" }}>{e.org}</div>
-                <ul className="list-disc ml-5 space-y-1" style={{ color: "#CBD5E1" }}>
+                <div className="font-semibold text-lg mb-3 pl-2" style={{ color: "#60A5FA" }}>{e.org}</div>
+                <ul className="list-disc ml-5 space-y-2 text-lg" style={{ color: "#CBD5E1", lineHeight: "1.8" }}>
                   {e.points.map((p, j) => <li key={j}>{p}</li>)}
                 </ul>
               </div>
@@ -615,7 +618,7 @@ export default function Portfolio() {
 
       {/* ── EDUCATION ── */}
       <Section id="education" eyebrow="05 · learning" title="Education">
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-8">
 
           {/* Al-Azhar */}
           <div className="rounded-2xl p-6 md:p-8 lift-card flex flex-col md:flex-row gap-6 md:items-start w-full"
@@ -625,20 +628,20 @@ export default function Portfolio() {
               🎓
             </div>
             <div>
-              <h3 className="font-mono font-bold text-xl md:text-2xl mb-3" style={{ color: "#3B82F6" }}>
+              <h3 className="font-mono font-bold text-2xl md:text-3xl mb-4" style={{ color: "#3B82F6" }}>
                 B.Sc. Computer Science & Pure Mathematics
               </h3>
-              <div className="flex flex-wrap items-center gap-3 mb-4 font-mono text-xs">
-                <span className="px-3 py-1 rounded-md font-bold tracking-wider"
+              <div className="flex flex-wrap items-center gap-3 mb-5 font-mono text-sm">
+                <span className="px-3.5 py-1.5 rounded-md font-bold tracking-wider"
                   style={{ border: "1px solid #334155", background: "#0B1730", color: "#F8FAFC" }}>
                   AL-AZHAR UNIVERSITY
                 </span>
-                <span className="px-3 py-1 rounded-md"
+                <span className="px-3.5 py-1.5 rounded-md"
                   style={{ background: "#0B1730", color: "#CBD5E1" }}>
                   Grad Year: 2027 | 2022 – Present
                 </span>
               </div>
-              <p className="leading-relaxed" style={{ color: "#CBD5E1" }}>
+              <p className="text-lg" style={{ color: "#CBD5E1", lineHeight: "1.8" }}>
                 Double major combining computer science — algorithms, databases, and programming —
                 with rigorous pure mathematics. Built the analytical and logical foundation that
                 powers my SQL data modeling, statistics, and Power BI analytics work.
@@ -654,20 +657,20 @@ export default function Portfolio() {
               📊
             </div>
             <div>
-              <h3 className="font-mono font-bold text-xl md:text-2xl mb-3" style={{ color: "#3B82F6" }}>
+              <h3 className="font-mono font-bold text-2xl md:text-3xl mb-4" style={{ color: "#3B82F6" }}>
                 Applied Data Science Lab
               </h3>
-              <div className="flex flex-wrap items-center gap-3 mb-4 font-mono text-xs">
-                <span className="px-3 py-1 rounded-md font-bold tracking-wider"
+              <div className="flex flex-wrap items-center gap-3 mb-5 font-mono text-sm">
+                <span className="px-3.5 py-1.5 rounded-md font-bold tracking-wider"
                   style={{ border: "1px solid #334155", background: "#0B1730", color: "#F8FAFC" }}>
                   WORLDQUANT UNIVERSITY
                 </span>
-                <span className="px-3 py-1 rounded-md"
+                <span className="px-3.5 py-1.5 rounded-md"
                   style={{ background: "#0B1730", color: "#CBD5E1" }}>
                   2026 – Present
                 </span>
               </div>
-              <p className="leading-relaxed" style={{ color: "#CBD5E1" }}>
+              <p className="text-lg" style={{ color: "#CBD5E1", lineHeight: "1.8" }}>
                 Project-based program covering end-to-end data science workflows in Python —
                 data wrangling, visualization, statistical modeling, and machine learning
                 applied to real-world datasets.
@@ -698,21 +701,21 @@ export default function Portfolio() {
               desc: "Power Query workflows, pivot reporting, and advanced formulas that save hours of manual work.",
               tags: ["Power Query", "Pivots", "Reports"] },
           ].map((s) => (
-            <div key={s.title} className="rounded-2xl p-6 lift-card flex flex-col"
+            <div key={s.title} className="rounded-2xl p-7 svc-card flex flex-col"
               style={{ background: "rgba(15,23,42,0.55)", border: "1.5px solid #334155", borderTop: `3px solid ${s.accent}` }}>
-              <div className="flex items-center justify-center rounded-xl text-3xl mb-4"
+              <div className="flex items-center justify-center rounded-xl text-3xl mb-5"
                 style={{ width: "56px", height: "56px", border: `1.5px solid ${s.accent}40`, background: "rgba(10,22,40,0.6)" }}>
                 {s.icon}
               </div>
-              <h3 className="font-bold text-lg mb-2" style={{ fontFamily: "'Syne',sans-serif", color: "#F8FAFC" }}>
+              <h3 className="font-bold text-xl mb-3" style={{ fontFamily: "'Syne',sans-serif", color: "#F8FAFC" }}>
                 {s.title}
               </h3>
-              <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "#94A3B8" }}>
+              <p className="text-base mb-5 flex-1" style={{ color: "#94A3B8", lineHeight: "1.75" }}>
                 {s.desc}
               </p>
               <div className="flex flex-wrap gap-2">
                 {s.tags.map((t) => (
-                  <span key={t} className="font-mono text-[11px] px-2 py-0.5 rounded-md"
+                  <span key={t} className="font-mono text-xs px-2.5 py-1 rounded-md"
                     style={{ background: "#0B1730", border: "1px solid #334155", color: s.accent }}>
                     {t}
                   </span>
@@ -731,7 +734,7 @@ export default function Portfolio() {
 
       {/* ── CONTACT ── */}
       <div>
-        <section id="contact" className="max-w-7xl mx-auto px-6 py-16">
+        <section id="contact" className="max-w-7xl mx-auto px-6 py-20">
           <div className="font-mono text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#F59E0B" }}>
             07 · ping me
           </div>
@@ -757,7 +760,7 @@ export default function Portfolio() {
               </span>
             </div>
             {/* terminal body */}
-            <div className="px-6 py-6 font-mono text-sm space-y-5">
+            <div className="px-7 py-7 font-mono text-base space-y-6">
               <div>
                 <div><span style={{ color: "#F59E0B" }}>$</span> <span style={{ color: "#94A3B8" }}>echo $LOCATION</span></div>
                 <div className="mt-1 font-semibold" style={{ color: "#F8FAFC" }}>📍 Cairo, Egypt</div>
