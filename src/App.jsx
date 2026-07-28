@@ -472,22 +472,18 @@ export default function Portfolio() {
           </div>
 
           {/* 🖼️ personal photo */}
-          <div className="shrink-0 w-full md:w-[55%] h-80 md:h-auto"
-            style={{
-              position: "relative",
-              overflow: "hidden",
-              borderLeft: "3px solid #F59E0B"
-            }}>
+          <div className="shrink-0 w-full md:w-[55%] flex items-center justify-center px-6 pb-12 md:py-20">
             <img
               src={hasnaaPhoto}
               alt="Hasnaa Ahmed"
+              className="rounded-lg"
               style={{
-                position: "absolute",
-                inset: 0,
-                width: "100%",
-                height: "100%",
+                width: "min(100%, 470px)",
+                aspectRatio: "1 / 1",
                 objectFit: "cover",
-                objectPosition: "center top"
+                objectPosition: "center top",
+                border: "1px solid #334155",
+                boxShadow: "0 20px 60px rgba(0,0,0,0.45)"
               }}
             />
           </div>
