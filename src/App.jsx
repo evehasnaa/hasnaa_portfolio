@@ -411,39 +411,48 @@ export default function Portfolio() {
 
       <div className="relative z-10">
 
+      {/* ── NAVBAR ── */}
+      <nav className="absolute top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-7xl rounded-2xl px-6 py-3 flex items-center justify-between"
+        style={{ background: "transparent", border: "1px solid #64748B" }}>
+        <a href="#" className="font-mono font-bold text-lg tracking-tight" style={{ color: "#F8FAFC" }}>
+          <span style={{ color: "#F59E0B" }}>{">"}</span> HASNAA_AHMED
+        </a>
+        <div className="hidden md:flex items-center gap-7 font-mono text-xs tracking-[0.15em] uppercase">
+          <a href="#about" className="transition-colors hover:text-white" style={{ color: "#94A3B8" }}>About</a>
+          <a href="#skills" className="transition-colors hover:text-white" style={{ color: "#94A3B8" }}>Skills</a>
+          <a href="#experience" className="transition-colors hover:text-white" style={{ color: "#94A3B8" }}>Experience</a>
+          <a href="#projects" className="transition-colors hover:text-white" style={{ color: "#94A3B8" }}>Projects</a>
+          <a href="#education" className="transition-colors hover:text-white" style={{ color: "#94A3B8" }}>Education</a>
+          <a href="#certifications" className="transition-colors hover:text-white" style={{ color: "#94A3B8" }}>Certifications</a>
+          <a href="#services" className="transition-colors hover:text-white" style={{ color: "#94A3B8" }}>Services</a>
+          <a href="#contact" className="transition-colors hover:text-white" style={{ color: "#94A3B8" }}>Contact</a>
+        </div>
+      </nav>
+
       {/* ── HERO ── */}
       <header className="relative overflow-hidden">
         <div className={`flex flex-col md:flex-row md:items-stretch ${entered ? "hero-in" : ""}`}
           style={{ minHeight: "100vh", padding: 0, maxWidth: "100%", margin: 0 }}>
           <div className="flex flex-col justify-center w-full md:w-[45%] px-6 pt-24 pb-12 md:py-20 md:pr-12 md:pl-24">
-          {/* signature tag */}
-          <div className="font-mono text-sm mb-6"
-            style={{ color: "#F59E0B" }}>
-            {">"} hasnaa.exe<span className="hasnaa-exe">_</span>
-          </div>
-
           {/* main headline */}
-          <h1 className="font-extrabold tracking-tight mb-6"
-            style={{ fontFamily: "'Syne',sans-serif",
-                     fontSize: "clamp(2.2rem,4.5vw,4rem)",
-                     lineHeight: "1.05" }}>
-            <span style={{ color: "#F8FAFC" }}>Hi, I am </span>
-            <span style={{
-              background: "linear-gradient(90deg,#2563EB 0%,#3B82F6 100%)",
-              WebkitBackgroundClip: "text",
-              backgroundClip: "text",
-              color: "transparent" }}>
-              Hasnaa Ahmed,
-            </span>
+          <h1 className="font-extrabold leading-tight mb-5"
+            style={{
+              fontFamily: "'Syne',sans-serif",
+              fontSize: "clamp(1.8rem,3.2vw,3rem)",
+              lineHeight: "1.1"
+            }}>
+            <span style={{ color: "#F59E0B" }}>Hasnaa Ahmed</span>
             <br />
-            <span style={{ color: "#F8FAFC" }}>
-              focusing on Turning Data
-            </span>
-            <br />
-            <span style={{ color: "#F59E0B" }}>
-              into Business Decisions.
-            </span>
+            <span style={{ color: "#F8FAFC" }}>&gt; Data Analytics</span>
           </h1>
+
+          <p className="mt-4 mb-8 text-base leading-relaxed"
+            style={{ color: "#CBD5E1", maxWidth: "38ch" }}>
+            Transforming raw data into{" "}
+            <strong style={{ color: "#F8FAFC" }}>actionable insights</strong>
+            . Building bridges between complex datasets and strategic
+            business decisions through Power BI, SQL, and Python.
+          </p>
 
           {/* CTA buttons */}
           <div className="flex flex-wrap gap-3">
@@ -464,8 +473,23 @@ export default function Portfolio() {
 
           {/* 🖼️ personal photo */}
           <div className="shrink-0 w-full md:w-[55%] h-80 md:h-auto"
-            style={{ position: "relative", overflow: "hidden" }}>
-            <img src={hasnaaPhoto} alt="Hasnaa Ahmed" className="absolute inset-0 w-full h-full object-cover object-top" />
+            style={{
+              position: "relative",
+              overflow: "hidden",
+              borderLeft: "3px solid #F59E0B"
+            }}>
+            <img
+              src={hasnaaPhoto}
+              alt="Hasnaa Ahmed"
+              style={{
+                position: "absolute",
+                inset: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "center top"
+              }}
+            />
           </div>
         </div>
 
@@ -595,28 +619,125 @@ export default function Portfolio() {
 
       {/* ── EDUCATION ── */}
       <Section id="education" eyebrow="05 · learning" title="Education">
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="rounded-2xl p-5 lift-card" style={{ background: "transparent", border: "1.5px solid #334155" }}>
-            <div className="font-mono text-xs mb-2" style={{ color: "#F59E0B" }}>DEGREE</div>
-            <p className="font-bold" style={{ color: "#F8FAFC" }}>B.Sc. Computer Science & Pure Mathematics</p>
-            <p style={{ color: "#94A3B8" }}>Al-Azhar University · 2022 – 2027</p>
+        <div className="flex flex-col gap-6">
+
+          {/* Al-Azhar */}
+          <div className="rounded-2xl p-6 md:p-8 lift-card flex flex-col md:flex-row gap-6 md:items-start w-full"
+            style={{ background: "rgba(15,23,42,0.55)", border: "1.5px solid #334155" }}>
+            <div className="shrink-0 flex items-center justify-center rounded-xl text-3xl"
+              style={{ width: "64px", height: "64px", border: "1.5px solid #334155", background: "rgba(10,22,40,0.6)" }}>
+              🎓
+            </div>
+            <div>
+              <h3 className="font-mono font-bold text-xl md:text-2xl mb-3" style={{ color: "#3B82F6" }}>
+                B.Sc. Computer Science & Pure Mathematics
+              </h3>
+              <div className="flex flex-wrap items-center gap-3 mb-4 font-mono text-xs">
+                <span className="px-3 py-1 rounded-md font-bold tracking-wider"
+                  style={{ border: "1px solid #334155", background: "#0B1730", color: "#F8FAFC" }}>
+                  AL-AZHAR UNIVERSITY
+                </span>
+                <span className="px-3 py-1 rounded-md"
+                  style={{ background: "#0B1730", color: "#CBD5E1" }}>
+                  Grad Year: 2027 | 2022 – Present
+                </span>
+              </div>
+              <p className="leading-relaxed" style={{ color: "#CBD5E1" }}>
+                Double major combining computer science — algorithms, databases, and programming —
+                with rigorous pure mathematics. Built the analytical and logical foundation that
+                powers my SQL data modeling, statistics, and Power BI analytics work.
+              </p>
+            </div>
           </div>
-          <div className="rounded-2xl p-5 lift-card" style={{ background: "transparent", border: "1.5px solid #334155" }}>
-            <div className="font-mono text-xs mb-2" style={{ color: "#F59E0B" }}>PROGRAM</div>
-            <p className="font-bold" style={{ color: "#F8FAFC" }}>Applied Data Science Lab</p>
-            <p style={{ color: "#94A3B8" }}>WorldQuant University · 2026 – Present</p>
+
+          {/* WorldQuant */}
+          <div className="rounded-2xl p-6 md:p-8 lift-card flex flex-col md:flex-row gap-6 md:items-start w-full"
+            style={{ background: "rgba(15,23,42,0.55)", border: "1.5px solid #334155" }}>
+            <div className="shrink-0 flex items-center justify-center rounded-xl text-3xl"
+              style={{ width: "64px", height: "64px", border: "1.5px solid #334155", background: "rgba(10,22,40,0.6)" }}>
+              📊
+            </div>
+            <div>
+              <h3 className="font-mono font-bold text-xl md:text-2xl mb-3" style={{ color: "#3B82F6" }}>
+                Applied Data Science Lab
+              </h3>
+              <div className="flex flex-wrap items-center gap-3 mb-4 font-mono text-xs">
+                <span className="px-3 py-1 rounded-md font-bold tracking-wider"
+                  style={{ border: "1px solid #334155", background: "#0B1730", color: "#F8FAFC" }}>
+                  WORLDQUANT UNIVERSITY
+                </span>
+                <span className="px-3 py-1 rounded-md"
+                  style={{ background: "#0B1730", color: "#CBD5E1" }}>
+                  2026 – Present
+                </span>
+              </div>
+              <p className="leading-relaxed" style={{ color: "#CBD5E1" }}>
+                Project-based program covering end-to-end data science workflows in Python —
+                data wrangling, visualization, statistical modeling, and machine learning
+                applied to real-world datasets.
+              </p>
+            </div>
           </div>
+
         </div>
       </Section>
 
       {/* ── CERTIFICATIONS ── */}
       <Certifications />
 
+      {/* ── SERVICES ── */}
+      <Section id="services" eyebrow="06 · hire me" title="Freelance Services">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {[
+            { icon: "📊", accent: "#F59E0B", title: "Power BI Dashboards",
+              desc: "Interactive, decision-ready dashboards with advanced DAX, time intelligence, and drill-through storytelling.",
+              tags: ["DAX", "Data Modeling", "KPI Design"] },
+            { icon: "🗄️", accent: "#3B82F6", title: "SQL Data Modeling",
+              desc: "Star schemas, ETL pipelines, and optimized queries — from raw tables to clean, analysis-ready models.",
+              tags: ["ETL", "Star Schema", "Optimization"] },
+            { icon: "🐍", accent: "#10B981", title: "Python Analysis",
+              desc: "Data cleaning, automation, and exploratory analysis with Pandas & NumPy — turning messy data into insights.",
+              tags: ["Pandas", "Automation", "EDA"] },
+            { icon: "📈", accent: "#8B5CF6", title: "Excel Solutions",
+              desc: "Power Query workflows, pivot reporting, and advanced formulas that save hours of manual work.",
+              tags: ["Power Query", "Pivots", "Reports"] },
+          ].map((s) => (
+            <div key={s.title} className="rounded-2xl p-6 lift-card flex flex-col"
+              style={{ background: "rgba(15,23,42,0.55)", border: "1.5px solid #334155", borderTop: `3px solid ${s.accent}` }}>
+              <div className="flex items-center justify-center rounded-xl text-3xl mb-4"
+                style={{ width: "56px", height: "56px", border: `1.5px solid ${s.accent}40`, background: "rgba(10,22,40,0.6)" }}>
+                {s.icon}
+              </div>
+              <h3 className="font-bold text-lg mb-2" style={{ fontFamily: "'Syne',sans-serif", color: "#F8FAFC" }}>
+                {s.title}
+              </h3>
+              <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "#94A3B8" }}>
+                {s.desc}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {s.tags.map((t) => (
+                  <span key={t} className="font-mono text-[11px] px-2 py-0.5 rounded-md"
+                    style={{ background: "#0B1730", border: "1px solid #334155", color: s.accent }}>
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-8 text-center">
+          <a href="#contact" className="btn-primary inline-block px-8 py-3 rounded-full font-bold transition-all hover:scale-105"
+            style={{ color: "#FFFFFF" }}>
+            🚀 Let's work together →
+          </a>
+        </div>
+      </Section>
+
       {/* ── CONTACT ── */}
       <div>
         <section id="contact" className="max-w-7xl mx-auto px-6 py-16">
           <div className="font-mono text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#F59E0B" }}>
-            06 · ping me
+            07 · ping me
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold mb-2"
             style={{ fontFamily: "'Syne',sans-serif", color: "#F8FAFC" }}>
@@ -625,11 +746,62 @@ export default function Portfolio() {
           <p className="mb-8 font-mono text-sm" style={{ color: "#94A3B8" }}>
             response_time ≈ faster than a Power BI refresh 😉
           </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <ContactCard icon="📧" label="Email" value={LINKS.email} action="copy" />
-            <ContactCard icon="📱" label="Phone / WhatsApp" value={LINKS.phone} action="open" href={LINKS.whatsapp} />
-            <ContactCard icon="💼" label="LinkedIn" value="hasnaa-ahmed-data-analysis" action="open" href={LINKS.linkedin} />
-            <ContactCard icon="💻" label="GitHub" value="evehasnaa" action="open" href={LINKS.github} />
+          <div className="rounded-xl overflow-hidden max-w-xl"
+            style={{ background: "rgba(10,22,40,0.85)", border: "1px solid #334155" }}>
+            {/* terminal title bar */}
+            <div className="relative flex items-center px-4 py-2.5"
+              style={{ background: "#1E293B", borderBottom: "1px solid #334155" }}>
+              <div className="flex gap-2">
+                <span className="w-3 h-3 rounded-full" style={{ background: "#EF4444" }} />
+                <span className="w-3 h-3 rounded-full" style={{ background: "#F59E0B" }} />
+                <span className="w-3 h-3 rounded-full" style={{ background: "#10B981" }} />
+              </div>
+              <span className="absolute left-1/2 -translate-x-1/2 font-mono text-xs" style={{ color: "#94A3B8" }}>
+                contact.sh
+              </span>
+            </div>
+            {/* terminal body */}
+            <div className="px-6 py-6 font-mono text-sm space-y-5">
+              <div>
+                <div><span style={{ color: "#F59E0B" }}>$</span> <span style={{ color: "#94A3B8" }}>echo $LOCATION</span></div>
+                <div className="mt-1 font-semibold" style={{ color: "#F8FAFC" }}>📍 Cairo, Egypt</div>
+              </div>
+              <div>
+                <div><span style={{ color: "#F59E0B" }}>$</span> <span style={{ color: "#94A3B8" }}>echo $ROLE</span></div>
+                <div className="mt-1 font-semibold" style={{ color: "#F8FAFC" }}>🕐 Data Analyst | BI Analyst</div>
+              </div>
+              <div>
+                <div><span style={{ color: "#F59E0B" }}>$</span> <span style={{ color: "#94A3B8" }}>echo $PHONE / $WHATSAPP</span></div>
+                <a href={LINKS.whatsapp} target="_blank" rel="noreferrer"
+                  className="mt-1 inline-block font-semibold hover:underline" style={{ color: "#F8FAFC" }}>
+                  📞 {LINKS.phone}
+                </a>
+              </div>
+              <div>
+                <div><span style={{ color: "#F59E0B" }}>$</span> <span style={{ color: "#94A3B8" }}>echo $EMAIL</span></div>
+                <a href={`mailto:${LINKS.email}`}
+                  className="mt-1 inline-block font-semibold hover:underline" style={{ color: "#F8FAFC" }}>
+                  ✉️ {LINKS.email}
+                </a>
+              </div>
+              <div>
+                <div><span style={{ color: "#F59E0B" }}>$</span> <span style={{ color: "#94A3B8" }}>echo $SOCIALS</span></div>
+                <div className="mt-1 flex gap-6">
+                  <a href={LINKS.linkedin} target="_blank" rel="noreferrer"
+                    className="font-semibold hover:underline" style={{ color: "#F8FAFC" }}>
+                    💼 LinkedIn
+                  </a>
+                  <a href={LINKS.github} target="_blank" rel="noreferrer"
+                    className="font-semibold hover:underline" style={{ color: "#F8FAFC" }}>
+                    🐙 Github
+                  </a>
+                </div>
+              </div>
+              <div>
+                <span style={{ color: "#F59E0B" }}>$</span>{" "}
+                <span className="hasnaa-exe" style={{ background: "#CBD5E1", color: "#CBD5E1" }}>&nbsp;</span>
+              </div>
+            </div>
           </div>
         </section>
       </div>
