@@ -78,7 +78,7 @@ function Splash({ onDone }) {
       </div>
 
       <p className="mt-8 text-center px-6 text-xl md:text-2xl font-bold tracking-tight"
-        style={{ color: "#F8FAFC", fontFamily: "'Syne',sans-serif" }}>
+        style={{ color: "#F8FAFC", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>
         ⭐ <span style={{ color: "#F59E0B" }}>Stars</span> are the only KPI I can't build a{" "}
         <span style={{ color: "#3B82F6" }}>dashboard</span> for.
       </p>
@@ -121,7 +121,7 @@ function Section({ id, eyebrow, title, children }) {
     <section id={id} className="max-w-7xl mx-auto px-6 py-20">
       <Reveal>
         <Eyebrow>{eyebrow}</Eyebrow>
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-8" style={{ fontFamily: "'Syne',sans-serif", color: "#F8FAFC" }}>
+        <h2 className="text-3xl md:text-4xl font-extrabold mb-8" style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#F8FAFC" }}>
           {title}
         </h2>
       </Reveal>
@@ -226,35 +226,34 @@ function ProjectCard({ p }) {
             ⬆ drop dashboard screenshot here
           </span>
         )}
-        <div className="absolute top-3 right-3 flex gap-2" style={{ zIndex: 3 }}>
-          {p.githubLink && (
-            <a href={p.githubLink} target="_blank" rel="noreferrer"
-              onClick={(e) => e.stopPropagation()} title="GitHub"
-              style={{ background: "rgba(10,22,40,0.85)", border: "1px solid #334155",
-                borderRadius: "8px", padding: "6px 10px", color: "#CBD5E1",
-                fontSize: "12px", textDecoration: "none", backdropFilter: "blur(4px)",
-                fontFamily: "monospace" }}>
-              GH ↗
-            </a>
-          )}
-          {p.powerbiLink && (
-            <a href={p.powerbiLink} target="_blank" rel="noreferrer"
-              onClick={(e) => e.stopPropagation()} title="Power BI Report"
-              style={{ background: "rgba(37,99,235,0.85)", border: "1px solid #2563EB",
-                borderRadius: "8px", padding: "6px 10px", color: "#FFFFFF",
-                fontSize: "12px", textDecoration: "none", backdropFilter: "blur(4px)",
-                fontFamily: "monospace" }}>
-              BI ↗
-            </a>
-          )}
-        </div>
       </div>
       <div className="p-5 flex flex-col flex-1">
         <div className="font-mono text-xs uppercase tracking-[0.2em] mb-2"
           style={{ color: "#F59E0B" }}>{p.tag}</div>
-        <h3 className="text-lg font-bold mb-3" style={{ color: "#60A5FA", lineHeight: 1.3 }}>
-          {p.title} <span className="proj-arrow" style={{ color: "#F59E0B" }}>↗</span>
-        </h3>
+        <div className="flex items-start justify-between gap-3 mb-3">
+          <a href={p.powerbiLink || p.githubLink} target="_blank" rel="noreferrer"
+            className="text-lg font-bold" style={{ color: "#60A5FA", lineHeight: 1.3, textDecoration: "none" }}>
+            {p.title} <span className="proj-arrow" style={{ color: "#F59E0B" }}>↗</span>
+          </a>
+          <div className="flex gap-2 shrink-0">
+            {p.githubLink && (
+              <a href={p.githubLink} target="_blank" rel="noreferrer"
+                style={{ background: "#0B1730", border: "1px solid #475569", color: "#CBD5E1",
+                  borderRadius: "6px", padding: "4px 10px", fontSize: "12px",
+                  fontFamily: "monospace", textDecoration: "none" }}>
+                {"</>"} Code
+              </a>
+            )}
+            {p.powerbiLink && (
+              <a href={p.powerbiLink} target="_blank" rel="noreferrer"
+                style={{ background: "rgba(37,99,235,0.15)", border: "1px solid #2563EB", color: "#60A5FA",
+                  borderRadius: "6px", padding: "4px 10px", fontSize: "12px",
+                  fontFamily: "monospace", textDecoration: "none" }}>
+                Live ↗
+              </a>
+            )}
+          </div>
+        </div>
         <div className="flex flex-wrap gap-2 mb-3">
           {p.tools.split("·").map((t) => (
             <span key={t} className="font-mono text-xs px-2.5 py-1 rounded-full"
@@ -312,16 +311,6 @@ const PROJECTS = [
     desc: "1M synthetic encounters generated, loaded through Staging → Bronze → Silver → Gold on SQL Server, and served via a Power BI semantic model — a full analytics-engineering pipeline.",
   },
   {
-    title: "Multi-Platform Marketing Analytics",
-    tag: "Marketing Performance Analytics",
-    tools: "Power BI · DAX · Power Query",
-    link: "https://app.powerbi.com/view?r=eyJrIjoiMTAxYzZkZTgtYzEzNS00ZTVlLTlhNTMtYmU2NjhlYmU3MTUwIiwidCI6IjJiYjZlNWJjLWMxMDktNDdmYi05NDMzLWMxYzZmNGZhMzNmZiIsImMiOjl9",
-    githubLink: null,
-    powerbiLink: "https://app.powerbi.com/view?r=eyJrIjoiMTAxYzZkZTgtYzEzNS00ZTVlLTlhNTMtYmU2NjhlYmU3MTUwIiwidCI6IjJiYjZlNWJjLWMxMDktNDdmYi05NDMzLWMxYzZmNGZhMzNmZiIsImMiOjl9",
-    img: marketingImg,
-    desc: "4-page report analyzing 20 campaigns across Facebook, Instagram & TikTok — 10+ DAX measures tracking ROI, CPC, CPA, CTR and conversion, with dynamic metric-switching and synced slicers.",
-  },
-  {
     title: "LinkedIn Job Market Analysis",
     tag: "Labor Market & Recruitment Analytics",
     tools: "Python · Power BI · DAX · Power Query",
@@ -330,6 +319,16 @@ const PROJECTS = [
     powerbiLink: "https://app.powerbi.com/groups/me/reports/3c2f9417-c369-43aa-b8d7-6871086ddb93?ctid=2bb6e5bc-c109-47fb-9433-c1c6f4fa33ff&pbi_source=linkShare",
     img: linkedinImg,
     desc: "327 job postings from 193 companies cleaned with Pandas & Power Query; dashboard with custom DAX measures surfacing a $156K average-salary benchmark, top hiring regions, and 5 job families.",
+  },
+  {
+    title: "Multi-Platform Marketing Analytics",
+    tag: "Marketing Performance Analytics",
+    tools: "Power BI · DAX · Power Query",
+    link: "https://app.powerbi.com/view?r=eyJrIjoiMTAxYzZkZTgtYzEzNS00ZTVlLTlhNTMtYmU2NjhlYmU3MTUwIiwidCI6IjJiYjZlNWJjLWMxMDktNDdmYi05NDMzLWMxYzZmNGZhMzNmZiIsImMiOjl9",
+    githubLink: null,
+    powerbiLink: "https://app.powerbi.com/view?r=eyJrIjoiMTAxYzZkZTgtYzEzNS00ZTVlLTlhNTMtYmU2NjhlYmU3MTUwIiwidCI6IjJiYjZlNWJjLWMxMDktNDdmYi05NDMzLWMxYzZmNGZhMzNmZiIsImMiOjl9",
+    img: marketingImg,
+    desc: "4-page report analyzing 20 campaigns across Facebook, Instagram & TikTok — 10+ DAX measures tracking ROI, CPC, CPA, CTR and conversion, with dynamic metric-switching and synced slicers.",
   },
   {
     title: "E-Commerce Customer Segmentation",
@@ -350,7 +349,7 @@ export default function Portfolio() {
   return (
     <div style={{ background: "#0A1628", fontFamily: "'Manrope',sans-serif" }} className="min-h-screen">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Manrope:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
         html { scroll-behavior: smooth; }
         * { font-family: inherit; }
         .font-mono { font-family: 'IBM Plex Mono', monospace !important; }
@@ -362,8 +361,8 @@ export default function Portfolio() {
         @keyframes pop { from { transform: scale(.4); opacity: 0;} to { transform: scale(1);} }
         .hero-in { animation: heroIn .9s cubic-bezier(.2,.9,.3,1) both; }
         @keyframes heroIn { from { opacity: 0; transform: translateY(26px);} to { opacity: 1;} }
-        .marquee { animation: slide 18s linear infinite; }
-        @keyframes slide { from { transform: translateX(0);} to { transform: translateX(-50%);} }
+        .marquee { display: flex; animation: slide 18s linear infinite; }
+        @keyframes slide { from { transform: translateX(0);} to { transform: translateX(-25%);} }
         .proj-card { position: relative; transition: transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94), border-color 0.3s ease; will-change: transform; }
         .proj-card:hover { transform: translateY(-6px); border-color: #2563EB !important; }
         .proj-card::before { content: ''; position: absolute; left: 0; top: 0; right: 0; height: 3px; background: #F59E0B; opacity: 0; transition: opacity .3s ease; z-index: 2; border-radius: 12px 12px 0 0; }
@@ -413,6 +412,21 @@ export default function Portfolio() {
 
       <div className="relative z-10">
 
+      {/* ── SIDE CTA BUTTONS ── */}
+      <div style={{ position: "fixed", right: "1rem", top: "50%", transform: "translateY(-50%)",
+        zIndex: 50, display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+        <a href="#projects" className="font-mono text-xs font-bold tracking-widest"
+          style={{ writingMode: "vertical-rl", background: "#F59E0B", color: "#0F172A",
+            borderRadius: "9999px", padding: "1rem 0.75rem", textDecoration: "none" }}>
+          Check my work
+        </a>
+        <a href="#contact" className="font-mono text-xs font-bold tracking-widest"
+          style={{ writingMode: "vertical-rl", background: "#2563EB", color: "#FFFFFF",
+            borderRadius: "9999px", padding: "1rem 0.75rem", textDecoration: "none" }}>
+          Hire me
+        </a>
+      </div>
+
       {/* ── NAVBAR ── */}
       <nav className="absolute top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-7xl rounded-2xl px-6 py-3 flex items-center justify-between"
         style={{ background: "transparent", border: "1px solid #64748B" }}>
@@ -420,13 +434,12 @@ export default function Portfolio() {
           <span style={{ color: "#F59E0B" }}>{">"}</span> HASNAA_AHMED
         </a>
         <div className="hidden md:flex items-center gap-7 font-mono text-xs tracking-[0.15em] uppercase">
-          <a href="#about" className="transition-colors hover:text-white" style={{ color: "#94A3B8" }}>About</a>
           <a href="#skills" className="transition-colors hover:text-white" style={{ color: "#94A3B8" }}>Skills</a>
+          <a href="#services" className="transition-colors hover:text-white" style={{ color: "#94A3B8" }}>Services</a>
           <a href="#experience" className="transition-colors hover:text-white" style={{ color: "#94A3B8" }}>Experience</a>
           <a href="#projects" className="transition-colors hover:text-white" style={{ color: "#94A3B8" }}>Projects</a>
-          <a href="#education" className="transition-colors hover:text-white" style={{ color: "#94A3B8" }}>Education</a>
           <a href="#certifications" className="transition-colors hover:text-white" style={{ color: "#94A3B8" }}>Certifications</a>
-          <a href="#services" className="transition-colors hover:text-white" style={{ color: "#94A3B8" }}>Services</a>
+          <a href="#education" className="transition-colors hover:text-white" style={{ color: "#94A3B8" }}>Education</a>
           <a href="#contact" className="transition-colors hover:text-white" style={{ color: "#94A3B8" }}>Contact</a>
         </div>
       </nav>
@@ -439,7 +452,7 @@ export default function Portfolio() {
           {/* main headline */}
           <h1 className="font-extrabold leading-tight mb-6"
             style={{
-              fontFamily: "'Syne',sans-serif",
+              fontFamily: "'Plus Jakarta Sans',sans-serif",
               fontSize: "clamp(2.4rem,4.5vw,4rem)",
               lineHeight: "1.08"
             }}>
@@ -460,15 +473,10 @@ export default function Portfolio() {
           <div className="flex flex-wrap gap-4">
             <a href="#projects" className="btn-primary px-8 py-4 text-lg rounded-full font-bold transition-all hover:scale-105"
               style={{ color: "#FFFFFF" }}>
-              See my work ↓
+              Check my work ↓
             </a>
             <a href="#contact" className="btn-outline px-8 py-4 text-lg rounded-full font-bold transition-all hover:scale-105">
               Contact me
-            </a>
-            <a href="https://drive.google.com/file/d/1mzRL_Ayhu5aZETCfj3oIpQpNrkqe2JyC/view" target="_blank" rel="noreferrer"
-              className="btn-primary px-8 py-4 text-lg rounded-full font-bold transition-all hover:scale-105"
-              style={{ color: "#FFFFFF" }}>
-              ⬇ Download CV
             </a>
           </div>
           </div>
@@ -494,7 +502,7 @@ export default function Portfolio() {
         {/* marquee strip */}
         <div className="overflow-hidden py-3" style={{ background: "#2563EB" }}>
           <div className="marquee whitespace-nowrap font-mono text-sm font-semibold" style={{ color: "#F8FAFC" }}>
-            {Array(2).fill("POWER BI ✦ DAX ✦ SQL ✦ PYTHON ✦ ETL ✦ DASHBOARDS ✦ DATA STORYTELLING ✦ ").map((s, i) => (
+            {Array(4).fill("POWER BI ✦ DAX ✦ SQL ✦ PYTHON ✦ ETL ✦ DASHBOARDS ✦ DATA STORYTELLING ✦ ").map((s, i) => (
               <span key={i} className="mx-2">{s}</span>
             ))}
           </div>
@@ -507,7 +515,7 @@ export default function Portfolio() {
           <div id="about" className="flex flex-col">
             <Reveal>
               <Eyebrow>01 · whoami</Eyebrow>
-              <h2 className="text-3xl md:text-4xl font-extrabold mb-8" style={{ fontFamily: "'Syne',sans-serif", color: "#F8FAFC" }}>
+              <h2 className="text-3xl md:text-4xl font-extrabold mb-8" style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#F8FAFC" }}>
                 About
               </h2>
             </Reveal>
@@ -515,7 +523,7 @@ export default function Portfolio() {
               <div className="space-y-7">
                 <p className="font-extrabold leading-tight"
                   style={{ 
-                    fontFamily: "'Syne',sans-serif",
+                    fontFamily: "'Plus Jakarta Sans',sans-serif",
                     fontSize: "clamp(1.6rem,3vw,2.2rem)",
                     color: "#F8FAFC" 
                   }}>
@@ -546,8 +554,8 @@ export default function Portfolio() {
 
           <div id="skills" className="flex flex-col">
             <Reveal>
-              <Eyebrow>02 · toolbox</Eyebrow>
-              <h2 className="text-3xl md:text-4xl font-extrabold mb-8" style={{ fontFamily: "'Syne',sans-serif", color: "#F8FAFC" }}>
+              <Eyebrow>01 · toolbox</Eyebrow>
+              <h2 className="text-3xl md:text-4xl font-extrabold mb-8" style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#F8FAFC" }}>
                 Skills
               </h2>
             </Reveal>
@@ -571,6 +579,54 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
+
+      {/* ── SERVICES ── */}
+      <Section id="services" eyebrow="02 · hire me" title="Freelance Services">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {[
+            { icon: "📊", accent: "#F59E0B", title: "Power BI Dashboards",
+              desc: "Interactive, decision-ready dashboards with advanced DAX, time intelligence, and drill-through storytelling.",
+              tags: ["DAX", "Data Modeling", "KPI Design"] },
+            { icon: "🗄️", accent: "#3B82F6", title: "SQL Data Modeling",
+              desc: "Star schemas, ETL pipelines, and optimized queries — from raw tables to clean, analysis-ready models.",
+              tags: ["ETL", "Star Schema", "Optimization"] },
+            { icon: "🐍", accent: "#10B981", title: "Python Analysis",
+              desc: "Data cleaning, automation, and exploratory analysis with Pandas & NumPy — turning messy data into insights.",
+              tags: ["Pandas", "Automation", "EDA"] },
+            { icon: "📈", accent: "#8B5CF6", title: "Excel Solutions",
+              desc: "Power Query workflows, pivot reporting, and advanced formulas that save hours of manual work.",
+              tags: ["Power Query", "Pivots", "Reports"] },
+          ].map((s) => (
+            <div key={s.title} className="rounded-2xl p-7 svc-card flex flex-col"
+              style={{ background: "rgba(15,23,42,0.55)", border: "1.5px solid #334155", borderTop: `3px solid ${s.accent}` }}>
+              <div className="flex items-center justify-center rounded-xl text-3xl mb-5"
+                style={{ width: "56px", height: "56px", border: `1.5px solid ${s.accent}40`, background: "rgba(10,22,40,0.6)" }}>
+                {s.icon}
+              </div>
+              <h3 className="font-bold text-xl mb-3" style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#F8FAFC" }}>
+                {s.title}
+              </h3>
+              <p className="text-base mb-5 flex-1" style={{ color: "#94A3B8", lineHeight: "1.75" }}>
+                {s.desc}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {s.tags.map((t) => (
+                  <span key={t} className="font-mono text-xs px-2.5 py-1 rounded-md"
+                    style={{ background: "#0B1730", border: "1px solid #334155", color: s.accent }}>
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-8 text-center">
+          <a href="#contact" className="btn-primary inline-block px-8 py-3 rounded-full font-bold transition-all hover:scale-105"
+            style={{ color: "#FFFFFF" }}>
+            🚀 Let's work together →
+          </a>
+        </div>
+      </Section>
 
       {/* ── EXPERIENCE ── */}
       <div>
@@ -602,7 +658,7 @@ export default function Portfolio() {
               04 · shipped
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold mb-8"
-              style={{ fontFamily: "'Syne',sans-serif", color: "#F8FAFC" }}>
+              style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#F8FAFC" }}>
               Projects
             </h2>
           </Reveal>
@@ -616,8 +672,11 @@ export default function Portfolio() {
         </section>
       </div>
 
+      {/* ── CERTIFICATIONS ── */}
+      <Certifications />
+
       {/* ── EDUCATION ── */}
-      <Section id="education" eyebrow="05 · learning" title="Education">
+      <Section id="education" eyebrow="06 · learning" title="Education">
         <div className="flex flex-col gap-8">
 
           {/* Al-Azhar */}
@@ -681,56 +740,6 @@ export default function Portfolio() {
         </div>
       </Section>
 
-      {/* ── CERTIFICATIONS ── */}
-      <Certifications />
-
-      {/* ── SERVICES ── */}
-      <Section id="services" eyebrow="06 · hire me" title="Freelance Services">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {[
-            { icon: "📊", accent: "#F59E0B", title: "Power BI Dashboards",
-              desc: "Interactive, decision-ready dashboards with advanced DAX, time intelligence, and drill-through storytelling.",
-              tags: ["DAX", "Data Modeling", "KPI Design"] },
-            { icon: "🗄️", accent: "#3B82F6", title: "SQL Data Modeling",
-              desc: "Star schemas, ETL pipelines, and optimized queries — from raw tables to clean, analysis-ready models.",
-              tags: ["ETL", "Star Schema", "Optimization"] },
-            { icon: "🐍", accent: "#10B981", title: "Python Analysis",
-              desc: "Data cleaning, automation, and exploratory analysis with Pandas & NumPy — turning messy data into insights.",
-              tags: ["Pandas", "Automation", "EDA"] },
-            { icon: "📈", accent: "#8B5CF6", title: "Excel Solutions",
-              desc: "Power Query workflows, pivot reporting, and advanced formulas that save hours of manual work.",
-              tags: ["Power Query", "Pivots", "Reports"] },
-          ].map((s) => (
-            <div key={s.title} className="rounded-2xl p-7 svc-card flex flex-col"
-              style={{ background: "rgba(15,23,42,0.55)", border: "1.5px solid #334155", borderTop: `3px solid ${s.accent}` }}>
-              <div className="flex items-center justify-center rounded-xl text-3xl mb-5"
-                style={{ width: "56px", height: "56px", border: `1.5px solid ${s.accent}40`, background: "rgba(10,22,40,0.6)" }}>
-                {s.icon}
-              </div>
-              <h3 className="font-bold text-xl mb-3" style={{ fontFamily: "'Syne',sans-serif", color: "#F8FAFC" }}>
-                {s.title}
-              </h3>
-              <p className="text-base mb-5 flex-1" style={{ color: "#94A3B8", lineHeight: "1.75" }}>
-                {s.desc}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {s.tags.map((t) => (
-                  <span key={t} className="font-mono text-xs px-2.5 py-1 rounded-md"
-                    style={{ background: "#0B1730", border: "1px solid #334155", color: s.accent }}>
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="mt-8 text-center">
-          <a href="#contact" className="btn-primary inline-block px-8 py-3 rounded-full font-bold transition-all hover:scale-105"
-            style={{ color: "#FFFFFF" }}>
-            🚀 Let's work together →
-          </a>
-        </div>
-      </Section>
 
       {/* ── CONTACT ── */}
       <div>
@@ -739,7 +748,7 @@ export default function Portfolio() {
             07 · ping me
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold mb-2"
-            style={{ fontFamily: "'Syne',sans-serif", color: "#F8FAFC" }}>
+            style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#F8FAFC" }}>
             Let's build something with data.
           </h2>
           <p className="mb-8 font-mono text-sm" style={{ color: "#94A3B8" }}>
@@ -795,10 +804,6 @@ export default function Portfolio() {
                     🐙 Github
                   </a>
                 </div>
-              </div>
-              <div>
-                <span style={{ color: "#F59E0B" }}>$</span>{" "}
-                <span className="hasnaa-exe" style={{ background: "#CBD5E1", color: "#CBD5E1" }}>&nbsp;</span>
               </div>
             </div>
           </div>

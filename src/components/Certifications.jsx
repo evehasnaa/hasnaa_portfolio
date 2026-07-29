@@ -8,13 +8,13 @@ export default function Certifications() {
         className="font-mono tracking-[0.35em] uppercase text-sm mb-3"
         style={{ color: "#F59E0B" }}
       >
-        Certifications
+        05 · certified
       </div>
 
       <h2
         className="text-4xl font-extrabold mb-12"
         style={{
-          fontFamily: "'Syne',sans-serif",
+          fontFamily: "'Plus Jakarta Sans',sans-serif",
           color: "#F8FAFC",
         }}
       >
@@ -60,7 +60,7 @@ export default function Certifications() {
                   <span
                     className="text-5xl font-extrabold"
                     style={{
-                      fontFamily: "'Syne',sans-serif",
+                      fontFamily: "'Plus Jakarta Sans',sans-serif",
                       color: "#FFFFFF",
                     }}
                   >
@@ -110,7 +110,7 @@ export default function Certifications() {
               <h3
                 className="text-2xl font-bold mb-3"
                 style={{
-                  fontFamily: "'Syne',sans-serif",
+                  fontFamily: "'Plus Jakarta Sans',sans-serif",
                   color: "#F8FAFC",
                   lineHeight: 1.25,
                 }}
