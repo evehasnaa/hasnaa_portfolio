@@ -208,7 +208,7 @@ function ContactCard({ icon, label, value, action, href }) {
 function ProjectCard({ p }) {
   return (
     <div
-      className="proj-card rounded-2xl overflow-hidden flex flex-col"
+      className="proj-card rounded-2xl overflow-hidden flex flex-col h-full"
       style={{ background: "#111F3D", border: "1.5px solid #1E3A5F" }}
     >
       <div
@@ -303,7 +303,7 @@ const PROJECTS = [
   {
     title: "Healthcare Analytics — End to End",
     tag: "Analytics Engineering · Medallion",
-    tools: "Python · SQL Server · Power BI · TMDL",
+    tools: "Python · SQL Server · Power BI  · ETL Pipeline · Data Warehouse · What-if Analysis",
     link: "https://github.com/evehasnaa/healthcare-analysis-end-to-end-project-",
     githubLink: "https://github.com/evehasnaa/healthcare-analysis-end-to-end-project-",
     powerbiLink: null,
@@ -313,7 +313,7 @@ const PROJECTS = [
   {
     title: "LinkedIn Job Market Analysis",
     tag: "Labor Market & Recruitment Analytics",
-    tools: "Python · Power BI · DAX · Power Query",
+    tools: "Python · Power BI · DAX · Power Query · Pandas · Matplotlib · Bookmark",
     link: "https://github.com/evehasnaa/LINKEDIN-JOP-DATA-ANALYSIS-PROJECT-",
     githubLink: "https://github.com/evehasnaa/LINKEDIN-JOP-DATA-ANALYSIS-PROJECT-",
     powerbiLink: "https://app.powerbi.com/groups/me/reports/3c2f9417-c369-43aa-b8d7-6871086ddb93?ctid=2bb6e5bc-c109-47fb-9433-c1c6f4fa33ff&pbi_source=linkShare",
@@ -382,10 +382,10 @@ export default function Portfolio() {
         .btn-outline { border: 2px solid #60A5FA; color: #60A5FA; }
         .btn-outline:hover { background: #2563EB; border-color: #2563EB; color: #FFFFFF; }
         .bg-anim { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
-          background: linear-gradient(120deg,#0A1628 0%,#0D1B33 25%,#0A1628 50%,#102040 75%,#0A1628 100%);
+          background: linear-gradient(120deg,#0A1628 0%,#0D1F3C 25%,#0A1628 50%,#0E2040 75%,#0A1628 100%);
           background-size: 300% 300%; animation: bgShift 26s ease-in-out infinite alternate; }
         @keyframes bgShift { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
-        .blob { position: absolute; border-radius: 9999px; filter: blur(90px); will-change: transform;
+        .blob { position: absolute; border-radius: 9999px; filter: blur(60px); will-change: transform;
           animation: drift 20s ease-in-out infinite alternate; }
         @keyframes drift {
           0%   { transform: translate(0,0) scale(1); }
@@ -404,10 +404,10 @@ export default function Portfolio() {
 
       {/* ── ANIMATED BACKGROUND ── */}
       <div className="bg-anim" aria-hidden="true">
-        <div className="blob" style={{ width: "48vw", height: "48vw", top: "-12%", left: "-10%", background: "rgba(37,99,235,.16)", animationDuration: "22s" }} />
-        <div className="blob" style={{ width: "42vw", height: "42vw", top: "20%", right: "-12%", background: "rgba(59,130,246,.14)", animationDuration: "26s", animationDelay: "-6s" }} />
-        <div className="blob" style={{ width: "40vw", height: "40vw", bottom: "-10%", left: "12%", background: "rgba(245,158,11,.12)", animationDuration: "24s", animationDelay: "-12s" }} />
-        <div className="blob" style={{ width: "34vw", height: "34vw", bottom: "18%", right: "18%", background: "rgba(16,185,129,.10)", animationDuration: "28s", animationDelay: "-18s" }} />
+        <div className="blob" style={{ width: "48vw", height: "48vw", top: "-12%", left: "-10%", background: "rgba(37,99,235,.35)", animationDuration: "22s" }} />
+        <div className="blob" style={{ width: "42vw", height: "42vw", top: "20%", right: "-12%", background: "rgba(59,130,246,.28)", animationDuration: "26s", animationDelay: "-6s" }} />
+        <div className="blob" style={{ width: "40vw", height: "40vw", bottom: "-10%", left: "12%", background: "rgba(245,158,11,.22)", animationDuration: "24s", animationDelay: "-12s" }} />
+        <div className="blob" style={{ width: "34vw", height: "34vw", bottom: "18%", right: "18%", background: "rgba(16,185,129,.20)", animationDuration: "28s", animationDelay: "-18s" }} />
       </div>
 
       <div className="relative z-10">
@@ -448,7 +448,7 @@ export default function Portfolio() {
       <header className="relative overflow-hidden">
         <div className={`flex flex-col md:flex-row md:items-stretch ${entered ? "hero-in" : ""}`}
           style={{ minHeight: "100vh", padding: 0, maxWidth: "100%", margin: 0 }}>
-          <div className="flex flex-col justify-center w-full md:w-[45%] px-6 pt-24 pb-12 md:py-20 md:pr-12 md:pl-24">
+          <div className="flex flex-col justify-center w-full md:w-[45%] px-6 pt-24 pb-12 md:pt-32 md:pb-8 md:pr-12 md:pl-6">
           {/* main headline */}
           <h1 className="font-extrabold leading-tight mb-6"
             style={{
@@ -664,7 +664,7 @@ export default function Portfolio() {
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: "1.5rem" }}>
             {PROJECTS.map((p, i) => (
-              <Reveal key={i} delay={i * 80}>
+              <Reveal key={i} delay={i * 80} className="h-full">
                 <ProjectCard p={p} />
               </Reveal>
             ))}
