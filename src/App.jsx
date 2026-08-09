@@ -18,7 +18,7 @@ import { EXPERIENCE, PROJECTS } from "./data/portfolioData";
 
 export default function Portfolio() {
   const [entered, setEntered] = useState(false);
-  const [canvasEnabled, setCanvasEnabled] = useState(true);
+  const [canvasEnabled, setCanvasEnabled] = useState(false);
 
   return (
     <div
