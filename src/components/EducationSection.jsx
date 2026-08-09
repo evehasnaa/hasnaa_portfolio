@@ -1,121 +1,56 @@
 import React from "react";
 import { Section } from "./ui/Reveal";
-import { GraduationCapSVG, PowerBIServiceSVG } from "./ui/icons";
+
+const EDUCATION_ITEMS = [
+  {
+    degree: "B.Sc. Computer Science & Pure Mathematics",
+    institution: "Al-Azhar University",
+    period: "2022 – 2027",
+    description:
+      "Double major combining algorithms, software engineering, and database systems with pure mathematics — establishing deep analytical foundations for complex SQL data modeling and business intelligence.",
+  },
+  {
+    degree: "Applied Data Science Lab",
+    institution: "WorldQuant University",
+    period: "2026 – Present",
+    description:
+      "Intensive, project-driven specialization covering end-to-end Python data science workflows — exploratory data analysis, statistical modeling, machine learning, and predictive visualization.",
+  },
+];
 
 export default function EducationSection() {
   return (
     <Section id="education" eyebrow="06 · learning" title="Education">
-      <div className="flex flex-col gap-8">
-        {/* Al-Azhar */}
-        <div
-          className="rounded-2xl p-6 md:p-8 lift-card flex flex-col md:flex-row gap-6 md:items-start w-full"
-          style={{
-            background: "rgba(15,23,42,0.55)",
-            border: "1.5px solid #334155",
-          }}
-        >
+      <div className="max-w-4xl mx-auto divide-y divide-slate-800/60 border-t border-b border-slate-800/60 py-2">
+        {EDUCATION_ITEMS.map((edu, idx) => (
           <div
-            className="shrink-0 flex items-center justify-center rounded-xl text-3xl"
-            style={{
-              width: "64px",
-              height: "64px",
-              border: "1.5px solid #334155",
-              background: "rgba(10,22,40,0.6)",
-            }}
+            key={idx}
+            className="group py-8 first:pt-4 last:pb-4 transition-all duration-300 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8 items-start"
           >
-            <GraduationCapSVG />
-          </div>
-          <div>
-            <h3
-              className="font-mono font-bold text-2xl md:text-3xl mb-4"
-              style={{ color: "#3B82F6" }}
-            >
-              B.Sc. Computer Science & Pure Mathematics
-            </h3>
-            <div className="flex flex-wrap items-center gap-3 mb-5 font-mono text-sm">
-              <span
-                className="px-3.5 py-1.5 rounded-md font-bold tracking-wider"
-                style={{
-                  border: "1px solid #334155",
-                  background: "#0B1730",
-                  color: "#F8FAFC",
-                }}
-              >
-                AL-AZHAR UNIVERSITY
+            {/* Left Column: Period & Institution */}
+            <div className="md:col-span-4 flex flex-col">
+              <span className="font-mono text-xs font-bold tracking-widest text-amber-400 uppercase mb-1">
+                {edu.period}
               </span>
-              <span
-                className="px-3.5 py-1.5 rounded-md"
-                style={{ background: "#0B1730", color: "#CBD5E1" }}
-              >
-                Grad Year: 2027 | 2022 – Present
-              </span>
+              <h4 className="text-base md:text-lg font-bold text-slate-300 group-hover:text-sky-400 transition-colors">
+                {edu.institution}
+              </h4>
             </div>
-            <p
-              className="text-lg"
-              style={{ color: "#CBD5E1", lineHeight: "1.8" }}
-            >
-              Double major combining computer science — algorithms, databases,
-              and programming — with rigorous pure mathematics. Built the
-              analytical and logical foundation that powers my SQL data
-              modeling, statistics, and Power BI analytics work.
-            </p>
-          </div>
-        </div>
 
-        {/* WorldQuant */}
-        <div
-          className="rounded-2xl p-6 md:p-8 lift-card flex flex-col md:flex-row gap-6 md:items-start w-full"
-          style={{
-            background: "rgba(15,23,42,0.55)",
-            border: "1.5px solid #334155",
-          }}
-        >
-          <div
-            className="shrink-0 flex items-center justify-center rounded-xl text-3xl"
-            style={{
-              width: "64px",
-              height: "64px",
-              border: "1.5px solid #334155",
-              background: "rgba(10,22,40,0.6)",
-            }}
-          >
-            <PowerBIServiceSVG />
-          </div>
-          <div>
-            <h3
-              className="font-mono font-bold text-2xl md:text-3xl mb-4"
-              style={{ color: "#3B82F6" }}
-            >
-              Applied Data Science Lab
-            </h3>
-            <div className="flex flex-wrap items-center gap-3 mb-5 font-mono text-sm">
-              <span
-                className="px-3.5 py-1.5 rounded-md font-bold tracking-wider"
-                style={{
-                  border: "1px solid #334155",
-                  background: "#0B1730",
-                  color: "#F8FAFC",
-                }}
+            {/* Right Column: Degree Title & Description */}
+            <div className="md:col-span-8 flex flex-col">
+              <h3
+                className="text-xl md:text-2xl font-extrabold text-slate-100 mb-2 transition-all duration-300 group-hover:text-white group-hover:translate-x-1"
+                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
               >
-                WORLDQUANT UNIVERSITY
-              </span>
-              <span
-                className="px-3.5 py-1.5 rounded-md"
-                style={{ background: "#0B1730", color: "#CBD5E1" }}
-              >
-                2026 – Present
-              </span>
+                {edu.degree}
+              </h3>
+              <p className="text-sm md:text-base text-slate-400 leading-relaxed">
+                {edu.description}
+              </p>
             </div>
-            <p
-              className="text-lg"
-              style={{ color: "#CBD5E1", lineHeight: "1.8" }}
-            >
-              Project-based program covering end-to-end data science workflows in
-              Python — data wrangling, visualization, statistical modeling, and
-              machine learning applied to real-world datasets.
-            </p>
           </div>
-        </div>
+        ))}
       </div>
     </Section>
   );
