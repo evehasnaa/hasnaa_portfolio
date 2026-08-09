@@ -53,7 +53,7 @@ export const IconExternalLink = ({ className = "h-4 w-4" }) => (
 );
 
 // Pre-computed deterministic rotation values for card stack to prevent layout jitter
-const ROTATIONS = [0, -6, 5, -4, 7, -3, 4, -5];
+const ROTATIONS = [0, -5, 4, -3, 6, -3, 4, -4];
 
 export const AnimatedTestimonials = ({
   testimonials = [],
@@ -87,18 +87,18 @@ export const AnimatedTestimonials = ({
 
   return (
     <div
-      className="mx-auto max-w-sm px-4 py-6 font-sans antialiased md:max-w-5xl md:px-8 lg:px-12"
+      className="mx-auto max-w-sm px-2 py-6 font-sans antialiased md:max-w-6xl md:px-4"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 items-stretch">
-        {/* Left Side: Animated Stacked Certificate Images */}
+      <div className="relative grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-10 items-stretch">
+        {/* Left Side: Wider Animated Stacked Certificate Images Container */}
         <div
-          className="w-full"
+          className="w-full md:col-span-7"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <div className="relative h-80 sm:h-96 w-full">
+          <div className="relative h-72 sm:h-84 md:h-[380px] lg:h-[410px] w-full">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => {
                 const rotation = ROTATIONS[index % ROTATIONS.length];
@@ -119,7 +119,7 @@ export const AnimatedTestimonials = ({
                       zIndex: isActive(index)
                         ? 40
                         : testimonials.length + 2 - index,
-                      y: isActive(index) ? [0, -40, 0] : 0,
+                      y: isActive(index) ? [0, -30, 0] : 0,
                     }}
                     exit={{
                       opacity: 0,
@@ -134,18 +134,18 @@ export const AnimatedTestimonials = ({
                     className="absolute inset-0 origin-bottom cursor-pointer group"
                     onClick={() => setActive(index)}
                   >
-                    <div className="h-full w-full rounded-3xl overflow-hidden border border-slate-700/80 bg-slate-900/90 shadow-2xl backdrop-blur-md relative">
+                    <div className="h-full w-full rounded-3xl overflow-hidden border border-slate-700/80 bg-slate-950/95 p-2 sm:p-3 shadow-2xl backdrop-blur-md relative flex items-center justify-center">
                       {testimonial.src || testimonial.image ? (
                         <img
                           src={testimonial.src || testimonial.image}
                           alt={testimonial.name || testimonial.title}
                           draggable={false}
-                          className="h-full w-full rounded-3xl object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                          className="h-full w-full rounded-2xl object-contain object-center transition-transform duration-700 group-hover:scale-[1.02]"
                         />
                       ) : (
                         /* Stylish Fallback for Certificates without an image (e.g. DEPI) */
                         <div
-                          className="h-full w-full rounded-3xl flex flex-col items-center justify-center p-8 text-center relative overflow-hidden"
+                          className="h-full w-full rounded-2xl flex flex-col items-center justify-center p-8 text-center relative overflow-hidden"
                           style={{
                             background:
                               "linear-gradient(135deg, #0B1730 0%, #1E3A8A 50%, #0F172A 100%)",
@@ -172,10 +172,10 @@ export const AnimatedTestimonials = ({
                         </div>
                       )}
 
-                      {/* Hover Glass Badge */}
-                      <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                      {/* Hover Glass Overlay */}
+                      <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none rounded-3xl">
                         <span className="px-4 py-2 rounded-full text-xs font-bold text-white bg-blue-600/90 backdrop-blur-md shadow-lg border border-blue-400/30 flex items-center gap-2">
-                          <span>View Certificate</span>
+                          <span>View Full Certificate</span>
                           <span>↗</span>
                         </span>
                       </div>
@@ -187,8 +187,8 @@ export const AnimatedTestimonials = ({
           </div>
         </div>
 
-        {/* Right Side: Fixed Layout Column */}
-        <div className="flex flex-col justify-between h-full min-h-[380px] sm:min-h-[400px] md:h-96 py-1">
+        {/* Right Side: Certificate Details Column */}
+        <div className="w-full md:col-span-5 flex flex-col justify-between h-full min-h-[380px] sm:min-h-[400px] md:h-[410px] py-1">
           {/* Animated Certificate Info (Title, Metadata, Description) */}
           <div className="flex-1 flex flex-col">
             <AnimatePresence mode="wait">
