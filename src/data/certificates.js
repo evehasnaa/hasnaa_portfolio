@@ -11,6 +11,8 @@ export const CERTIFICATES = [
       "https://raw.githubusercontent.com/evehasnaa/my-certification-/main/ITI%20python/WhatsApp%20Image%202026-03-13%20at%2010.53.57%20PM.jpeg",
     credential:
       "https://github.com/evehasnaa/my-certification-/blob/main/ITI%20python/WhatsApp%20Image%202026-03-13%20at%2010.53.57%20PM.jpeg",
+    quote:
+      "Completed intensive hands-on Python training covering data structures, object-oriented programming, analytical scripting, and data processing workflows at ITI.",
   },
 
   {
@@ -22,6 +24,8 @@ export const CERTIFICATES = [
     image: datacampImg,
     credential:
       "https://github.com/evehasnaa/my-certification-/blob/main/Associate%20Data%20Analyst%20in%20SQL.png",
+    quote:
+      "Verified certification in relational database management, complex SQL querying, joins, aggregations, window functions, and data manipulation for business intelligence.",
   },
 
   {
@@ -34,6 +38,8 @@ export const CERTIFICATES = [
       "https://raw.githubusercontent.com/evehasnaa/my-certification-/main/alx%20data%20analytics/data-analytics-certificate-hasnaa-ahmed.png",
     credential:
       "https://github.com/evehasnaa/my-certification-/blob/main/alx%20data%20analytics/data-analytics-certificate-hasnaa-ahmed.png",
+    quote:
+      "Comprehensive program covering end-to-end data pipelines, exploratory analysis, statistical visualization, Excel modeling, and data-driven decision making.",
   },
 
   {
@@ -46,6 +52,8 @@ export const CERTIFICATES = [
       "https://raw.githubusercontent.com/evehasnaa/my-certification-/main/alx%20data%20analytics/professional-foundations-certificate-hasnaa-ahmed.png",
     credential:
       "https://github.com/evehasnaa/my-certification-/blob/main/alx%20data%20analytics/professional-foundations-certificate-hasnaa-ahmed.png",
+    quote:
+      "Mastered core professional skillsets including agile project management, effective business communication, problem solving, and workplace leadership.",
   },
 
   {
@@ -58,6 +66,8 @@ export const CERTIFICATES = [
       "https://raw.githubusercontent.com/evehasnaa/my-certification-/main/alx%20va%20and%20ai/72-virtual-assistant-certificate-hasnaa-ahmed.png",
     credential:
       "https://github.com/evehasnaa/my-certification-/blob/main/alx%20va%20and%20ai/72-virtual-assistant-certificate-hasnaa-ahmed.png",
+    quote:
+      "Specialized training in executive support, digital workflow automation, client communication, schedule management, and AI-driven productivity tools.",
   },
 
   {
@@ -70,6 +80,8 @@ export const CERTIFICATES = [
       "https://raw.githubusercontent.com/evehasnaa/my-certification-/main/alx%20va%20and%20ai/113-alx-ai-starter-kit-certificate-hasnaa-ahmed.png",
     credential:
       "https://github.com/evehasnaa/my-certification-/blob/main/alx%20va%20and%20ai/113-alx-ai-starter-kit-certificate-hasnaa-ahmed.png",
+    quote:
+      "Practical expertise in applying artificial intelligence, prompt engineering, LLM integration, and modern AI automation tools to streamline workflows.",
   },
 
   {
@@ -80,5 +92,7 @@ export const CERTIFICATES = [
     date: "2024 – 2025",
     image: null,
     credential: "https://github.com/evehasnaa/my-certification-",
+    quote:
+      "Digital Egypt Pioneers Initiative (DEPI) track specializing in advanced data analytics, business intelligence dashboards, SQL databases, and data storytelling.",
   },
 ];

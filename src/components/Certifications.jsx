@@ -1,151 +1,35 @@
 import { CERTIFICATES } from "../data/certificates";
+import { AnimatedTestimonials } from "./ui/animated-testimonials";
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="max-w-6xl mx-auto px-6 py-20">
+    <section id="certifications" className="max-w-6xl mx-auto px-6 py-16 md:py-24 relative">
+      {/* Section Header */}
+      <div className="mb-4">
+        <div
+          className="font-mono tracking-[0.35em] uppercase text-sm mb-3 font-semibold"
+          style={{ color: "#F59E0B" }}
+        >
+          05 · certified
+        </div>
 
-      <div
-        className="font-mono tracking-[0.35em] uppercase text-sm mb-3"
-        style={{ color: "#F59E0B" }}
-      >
-        05 · certified
+        <h2
+          className="text-3xl md:text-4xl font-extrabold mb-3"
+          style={{
+            fontFamily: "'Plus Jakarta Sans',sans-serif",
+            color: "#F8FAFC",
+          }}
+        >
+          Professional Certifications
+        </h2>
+
+        <p className="text-slate-400 text-sm md:text-base max-w-2xl leading-relaxed">
+          Verified industry credentials across Data Analytics, SQL, Python, AI, and Executive Virtual Assistance.
+        </p>
       </div>
 
-      <h2
-        className="text-4xl font-extrabold mb-12"
-        style={{
-          fontFamily: "'Plus Jakarta Sans',sans-serif",
-          color: "#F8FAFC",
-        }}
-      >
-        Professional Certifications
-      </h2>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-        {CERTIFICATES.map((cert) => (
-
-          <a
-            key={cert.id}
-            href={cert.credential}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-3"
-            style={{
-              background: "#111F3D",
-              border: "1.5px solid #334155",
-              boxShadow: "0 4px 14px rgba(15,23,42,.35)",
-            }}
-          >
-
-            {/* IMAGE */}
-
-            <div className="relative overflow-hidden h-60">
-
-              {cert.image ? (
-                <img
-                  src={cert.image}
-                  alt={cert.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
-                />
-              ) : (
-                <div
-                  className="w-full h-full flex items-center justify-center transition duration-700 group-hover:scale-110"
-                  style={{
-                    background:
-                      "linear-gradient(135deg,#2563EB 0%,#3B82F6 100%)",
-                  }}
-                >
-                  <span
-                    className="text-5xl font-extrabold"
-                    style={{
-                      fontFamily: "'Plus Jakarta Sans',sans-serif",
-                      color: "#FFFFFF",
-                    }}
-                  >
-                    {cert.issuer.charAt(0)}
-                  </span>
-                </div>
-              )}
-
-              {/* Overlay */}
-
-              <div
-                className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500"
-                style={{
-                  background: "rgba(15,23,42,.55)",
-                }}
-              >
-
-                <span
-                  className="px-5 py-3 rounded-full font-semibold"
-                  style={{
-                    background:
-                      "linear-gradient(90deg,#2563EB,#3B82F6)",
-                    color: "#FFFFFF",
-                  }}
-                >
-                  View Credential →
-                </span>
-
-              </div>
-
-            </div>
-
-            {/* CONTENT */}
-
-            <div className="p-7">
-
-              <span
-                className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-4"
-                style={{
-                  background: "#0B1730",
-                  color: "#60A5FA",
-                }}
-              >
-                {cert.category}
-              </span>
-
-              <h3
-                className="text-2xl font-bold mb-3"
-                style={{
-                  fontFamily: "'Plus Jakarta Sans',sans-serif",
-                  color: "#F8FAFC",
-                  lineHeight: 1.25,
-                }}
-              >
-                {cert.title}
-              </h3>
-
-              <p
-                className="text-base"
-                style={{
-                  color: "#94A3B8",
-                  lineHeight: 1.7,
-                }}
-              >
-                <strong>Issued by:</strong> {cert.issuer}
-              </p>
-
-              <p
-                className="text-base mt-2"
-                style={{
-                  color: "#94A3B8",
-                  lineHeight: 1.7,
-                }}
-              >
-                <strong>Date:</strong> {cert.date}
-              </p>
-
-            </div>
-
-          </a>
-
-        ))}
-
-      </div>
-
+      {/* Animated Testimonials / Certificates Component */}
+      <AnimatedTestimonials testimonials={CERTIFICATES} autoplay={true} />
     </section>
   );
 }
